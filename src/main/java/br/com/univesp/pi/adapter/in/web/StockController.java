@@ -16,4 +16,9 @@ public class StockController {
 
         return null; //donorRepository.findAll();
     }
+    @GetMapping(path = "/api/product/{productId}")
+    public Iterable<Object> getProductById(){
+
+        return null; //donorRepository.findAll();
+    }
 }
