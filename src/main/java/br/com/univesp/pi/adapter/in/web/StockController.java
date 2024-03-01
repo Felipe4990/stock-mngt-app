@@ -16,23 +16,9 @@ public class StockController {
 
         return null; //donorRepository.findAll();
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     @GetMapping(path = "/api/product/{productId}")
     public Iterable<Object> getProductById(){
 
-        return null;
+        return null; //donorRepository.findAll();
     }
-=======
->>>>>>> 66680f7 (feat: First Commit)
-=======
->>>>>>> 9dc0515 (feat: First Commit)
-=======
-    @GetMapping(path = "/api/product/{productId}")
-    public Iterable<Object> getProductById(){
-
-        return null;
-    }
->>>>>>> 7cda6c6 (Merge remote-tracking branch 'origin/master')
 }
