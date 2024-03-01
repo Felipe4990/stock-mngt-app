@@ -19,6 +19,6 @@ public class StockController {
     @GetMapping(path = "/api/product/{productId}")
     public Iterable<Object> getProductById(){
 
-        return null; //donorRepository.findAll();
+        return null;
     }
 }
