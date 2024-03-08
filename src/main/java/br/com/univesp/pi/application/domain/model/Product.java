@@ -6,10 +6,7 @@ import lombok.Setter;
 @Setter
 @Getter
 public class Product {
-
     private String name;
     private String description;
     private Money price;
-
-
 }

@@ -5,10 +5,8 @@ import lombok.Setter;
 @Setter
 @Getter
 public class Money {
-
     public Integer value;
     public Integer decimals;
     public String type;
     public String signal;
-
 }
