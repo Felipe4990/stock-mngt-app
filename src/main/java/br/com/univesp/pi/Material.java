@@ -9,8 +9,8 @@ import java.math.BigDecimal;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "Product")
-public class Product {
+@Entity(name = "Material")
+public class Material {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)

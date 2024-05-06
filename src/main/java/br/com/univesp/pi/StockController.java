@@ -3,21 +3,12 @@ package br.com.univesp.pi;
 
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.modelmapper.TypeMap;
-import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.modelmapper.Converter;
-import org.modelmapper.spi.MappingContext;
-import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 
 @RestController
@@ -25,46 +16,46 @@ import java.util.stream.Collectors;
 public class StockController {
 
     @Autowired
-    ProductService productService;
+    MaterialService materialService;
 
     @Autowired
     private ModelMapper modelMapper;
 
-    @PostMapping(path = "/api/products")
-    public ResponseEntity<ProductDTO> saveProduct(@RequestBody ProductDTO productDTO){
+    @PostMapping(path = "/api/materials")
+    public ResponseEntity<MaterialDTO> saveMaterial(@RequestBody MaterialDTO materialDTO){
 
         // Convert DTO to Entity
-        Product productRequest = modelMapper.map(productDTO, Product.class);
+        Material materialRequest = modelMapper.map(materialDTO, Material.class);
 
         // Save Product to MySQL
-        Product product = productService.saveProduct(productRequest);
+        Material material = materialService.saveMaterial(materialRequest);
 
         // Convert Entity to DTO
-        ProductDTO productResponse = modelMapper.map(product, ProductDTO.class);
+        MaterialDTO materialResponse = modelMapper.map(material, MaterialDTO.class);
 
-        return new ResponseEntity<ProductDTO>(productResponse, HttpStatus.CREATED);
+        return new ResponseEntity<MaterialDTO>(materialResponse, HttpStatus.CREATED);
     }
 
-    @GetMapping("/api/product/{id}")
-    public ResponseEntity<ProductDTO> getProductById(@PathVariable(name = "id") Long id) {
+    @GetMapping("/api/material/id/{id}")
+    public ResponseEntity<MaterialDTO> getMaterialById(@PathVariable(name = "id") Long id) {
 
         // Get Product from MySQL
-        Product product = productService.getProductById(id);
+        Material material = materialService.getMaterialById(id);
 
         // Convert Entity to DTO
-        ProductDTO productResponse = modelMapper.map(product, ProductDTO.class);
+        MaterialDTO materialResponse = modelMapper.map(material, MaterialDTO.class);
 
-        return ResponseEntity.ok().body(productResponse);
+        return ResponseEntity.ok().body(materialResponse);
     }
 
 
-    @GetMapping("/api/product/jarvis/{name}")
-    public ResponseEntity<List<Product>> getProductByRegex(@PathVariable(name = "name") String name) {
+    @GetMapping("/api/material/{name}")
+    public ResponseEntity<List<Material>> getMaterialByRegex(@PathVariable(name = "name") String name) {
 
         // Get Product from MySQL
-        List<Product> products = productService.getProductByRegex(name);
+        List<Material> materials = materialService.getMaterialsByRegex(name);
 
-        return ResponseEntity.ok().body(products);
+        return ResponseEntity.ok().body(materials);
     }
 
 }
