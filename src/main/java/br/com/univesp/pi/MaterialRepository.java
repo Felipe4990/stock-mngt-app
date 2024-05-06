@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 @Repository
 public interface MaterialRepository extends JpaRepository<Material, Long> {
-    @Query("SELECT id,name,description,price FROM Material WHERE name LIKE CONCAT('%',:regex,'%')")
+    @Query("SELECT id,name,description,price,expirationDate,purchaseDate FROM Material WHERE name LIKE CONCAT('%',:regex,'%')")
     public <T> ArrayList<T> getMaterialByRegex(@Param("regex") String regex);
 
 }
