@@ -36,6 +36,15 @@ public class StockController {
         return new ResponseEntity<MaterialDTO>(materialResponse, HttpStatus.CREATED);
     }
 
+    @DeleteMapping("/api/material/id/{id}")
+    public ResponseEntity<String> deleteMaterialById(@PathVariable(name = "id") Long id) {
+
+        // Delete Material from MySQL
+        materialService.deleteMaterialById(id);
+
+        return new ResponseEntity<String>(HttpStatus.OK);
+    }
+
     @GetMapping("/api/material/id/{id}")
     public ResponseEntity<MaterialDTO> getMaterialById(@PathVariable(name = "id") Long id) {
 
@@ -57,5 +66,7 @@ public class StockController {
 
         return ResponseEntity.ok().body(materials);
     }
+
+
 
 }

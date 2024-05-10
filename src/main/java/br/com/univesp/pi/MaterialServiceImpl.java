@@ -35,5 +35,11 @@ public class MaterialServiceImpl implements MaterialService {
         return materialRepository.getMaterialByRegex(regex);
     }
 
+    @Override
+    public void deleteMaterialById(Long id) {
+
+        materialRepository.deleteById(id);
+    }
+
 
 }

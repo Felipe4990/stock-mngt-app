@@ -9,4 +9,5 @@ public interface MaterialService {
 
     List<Material> getMaterialsByRegex(String regex);
 
+    void deleteMaterialById(Long id);
 }
