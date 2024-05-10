@@ -21,19 +21,8 @@ import java.util.List;
 
 @RestControllerAdvice
 public class StockResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
-/*
-    @ExceptionHandler(value = { IllegalArgumentException.class, IllegalStateException.class })
-    protected ResponseEntity<Object> handleConflict(RuntimeException ex, WebRequest request) {
-        String bodyOfResponse = "This should be application specific";
-        return handleExceptionInternal(ex, bodyOfResponse, new HttpHeaders(), HttpStatus.CONFLICT, request);
-    }
-*/
     @ExceptionHandler(ResourceNotFoundException.class)
     public ErrorResponse handleResourceNotFoundException(ResourceNotFoundException e, WebRequest request) {
-
-        //String error = "The following Resource ID hasn't been found: " + e.getMessage();
-        //ErrorTemplate apiError = new ErrorTemplate(HttpStatus.NOT_FOUND, e.getLocalizedMessage(), error);
-        //ResponseEntity<Object> test = new ResponseEntity<Object>(apiError, new HttpHeaders(), apiError.getStatus());
 
         return ErrorResponse.builder(e, HttpStatus.NOT_FOUND, e.getMessage())
                 .title("Resource not found")
@@ -44,23 +33,5 @@ public class StockResponseEntityExceptionHandler extends ResponseEntityException
                 .build();
 
     }
-    /*
-    @ExceptionHandler(DuplicatedProductException.class)
-    public ErrorResponse handleConstraintViolationException(ResourceNotFoundException e, WebRequest request) {
-
-        String cu;
-
-        return ErrorResponse.builder(e, HttpStatus.BAD_REQUEST, e.getMessage())
-                .title("Constraint Violation")
-                .type(URI.create(((ServletWebRequest) request).getRequest().getRequestURL().toString()))
-                .detail("The following Product already exists in the Database")
-                .property("errorCategory", "Database")
-                .property("timestamp", Instant.now())
-                .build();
-
-    }
-
-     */
-
 
 }
