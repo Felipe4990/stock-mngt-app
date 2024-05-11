@@ -20,7 +20,7 @@ public class StockController {
 
     @Autowired
     private ModelMapper modelMapper;
-
+    @CrossOrigin
     @PostMapping(path = "/api/materials")
     public ResponseEntity<MaterialDTO> saveMaterial(@RequestBody MaterialDTO materialDTO){
 
@@ -35,7 +35,7 @@ public class StockController {
 
         return new ResponseEntity<MaterialDTO>(materialResponse, HttpStatus.CREATED);
     }
-
+    @CrossOrigin
     @DeleteMapping("/api/material/id/{id}")
     public ResponseEntity<String> deleteMaterialById(@PathVariable(name = "id") Long id) {
 
@@ -44,7 +44,7 @@ public class StockController {
 
         return new ResponseEntity<String>(HttpStatus.OK);
     }
-
+    @CrossOrigin
     @GetMapping("/api/material/id/{id}")
     public ResponseEntity<MaterialDTO> getMaterialById(@PathVariable(name = "id") Long id) {
 
@@ -57,7 +57,7 @@ public class StockController {
         return ResponseEntity.ok().body(materialResponse);
     }
 
-
+    @CrossOrigin
     @GetMapping("/api/material/{name}")
     public ResponseEntity<List<Material>> getMaterialByRegex(@PathVariable(name = "name") String name) {
 
