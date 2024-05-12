@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cadastro</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="insertion">
+            <form id="insertion_form">
+
+                <div class="form-control">
+                    <label for="name">Nome do Material:</label>
+                    <input id="name" name="name" type="text" placeholder="Insira o nome do Ingrediente e/ou Produto" required/>
+                </div>
+                <div>
+                    <label for="description">Conteúdo:</label>
+                    <input id="description" name="description" type="text" placeholder="Insira uma Descrição" required>
+                </div>
+                <div>
+                    <label for="price">Preço:</label>
+                    <input id="price" name="price" type="text" placeholder="Insira o Preço" require>
+                </div>
+                <div>
+                    <label for="expirationDate">Data de Validade:</label>
+                    <input id="expirationDate" name="expirationDate" type="text" placeholder="Insira a Data de Validade" require>
+                </div>
+                <div>
+                    <label for="purchaseDate">Data de Compra:</label>
+                    <input id="purchaseDate" name="purchaseDate" type="text" placeholder="Insira a Data de Compra" require>
+                </div>
+                <button class="button" type="submit">Enviar</button>
+            </form>
+        </div>
+        <!--
+        <div class="output">
+            <h2>Form Data Output</h2>
+            <pre class="output-pre"></pre>
+        </div>
+        -->
+        <script src="register-materials.js"></script>
+
+    </body>
+</html>
