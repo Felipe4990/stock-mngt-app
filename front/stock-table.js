@@ -1,4 +1,6 @@
 
+// ## Listing and Presentation ####################################################################
+
 async function getValueForMaterialsTable() { 
     let inputField = document.getElementById("material-search"); 
     
@@ -46,5 +48,14 @@ async function generateTableHead() {
         row.appendChild(th);
     }
 }
-
 generateTableHead();
+
+
+
+// ## Deletion ####################################################################################
+async function deleteElementFromtable(){    
+    const response = await fetch('http://localhost:8080/api/material/id/124', { method: 'DELETE' })
+        .then(() => element.innerHTML = 'Delete successful');
+
+}
+

@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <div class ="search">
+    <div class="search">
         <input type="text" id="material-search" placeholder="Insira o Nome do Material a Ser Pesquisado"> 
         <button onclick="getValueForMaterialsTable()">Enviar</button> 
     </div>
@@ -19,7 +19,12 @@
         <table name="materials-table" id ="materials-table"></table>
     </div>
 
-    <script src="list-stock.js"></script>
+
+    <div class="delete">
+        <button onclick="deleteElementFromtable()">Deletar</button>
+    </div>
+
+    <script src="stock-table.js"></script>
 </body>
 
 </html>
