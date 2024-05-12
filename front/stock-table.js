@@ -1,6 +1,8 @@
 
 // ## Listing and Presentation ####################################################################
 
+
+// Table button calls it onClick. Retrieves name filtered content from the Backend
 async function getValueForMaterialsTable() { 
     let inputField = document.getElementById("material-search"); 
     
@@ -14,9 +16,9 @@ async function getValueForMaterialsTable() {
     } catch (error) {
         console.error('Error fetching data:', error);
     }
-
 } 
 
+// Deletes all the non header rows of table prior to refreshing the filter's contents 
 function deleteContents(){
     var myTable = document.getElementById("materials-table");
     var rowCount = myTable.rows.length;
@@ -25,22 +27,34 @@ function deleteContents(){
     }
 }
 
+// Generate new rows into the table for all the filtered results 
 function generateTable(data) {
     for (let element of data) {
         let row = document.querySelector("table").insertRow();
-        for (key in element) {
+
+        let count = 1
+        for (let i=0; i < element.length + 2; i++) {
             let cell = row.insertCell();
-            let text = document.createTextNode(element[key]);
-            cell.appendChild(text);
+            if (count <= element.length){
+                let text = document.createTextNode(element[i]);
+                cell.appendChild(text);
+                count++;
+            } else if (count <= element.length + 1) {
+                cell.appendChild(document.createTextNode("#action_btn_edit"));
+                count++;
+            } else {
+                cell.appendChild(document.createTextNode("#action_btn_delete"));
+            }
         }
     }
 }
 
+// Generates the Table Header
 async function generateTableHead() {
     let thead = document.querySelector("table").createTHead();
     let row = thead.insertRow();
 
-    const titleArray = ["ID", "Material", "Conteúdo", "Preço", "Validade", "Fabricação"];
+    const titleArray = ["ID", "Material", "Conteúdo", "Preço", "Validade", "Fabricação", "E", "D"];
     for (var i in titleArray) {
         let th = document.createElement("th");
         let text = document.createTextNode(titleArray[i]);
@@ -48,6 +62,8 @@ async function generateTableHead() {
         row.appendChild(th);
     }
 }
+
+// Construct Table header asynchronously so it doesn't depend othe table contents proper
 generateTableHead();
 
 
