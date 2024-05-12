@@ -1,31 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sample API Data</title>
     <link rel="stylesheet" href="styles.css">
-    
-
-    //cdn.datatables.net/2.0.7/css/dataTables.dataTables.min.css
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <table>
+    <!-- ## Insertion Form for new Materials and/or Products -->
+    <!--
+    <div class="insertion">
+        <form id="insertion_form">
+            <div>
+                <label for="material_field">Nome do Material:</label>
+                <input id="material_field" type="text" placeholder="Insira o nome do Ingrediente e/ou Produto" required>
+            </div>
+            <div>
+                <label for="content_field">Conteúdo:</label>
+                <input id="content_field" type="text" placeholder="Insira uma Descrição" required>
+            </div>
+            </div>
+                <label for="price_field">Preço:</label>
+                <input id="price_field" type="text" placeholder="Insira o Preço" require>
+            <div>
+            </div>
+                <label for="expiration_date_field">Data de Validade:</label>
+                <input id="expiration_date_field" type="text" placeholder="Insira a Data de Validade" require>
+            <div>
+            </div>
+                <label for="purchase_date_field">Data de Compra:</label>
+                <input id="purchase_date_field" type="text" placeholder="Insira a Data de Compra" require>
+            <div>
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+    -->
 
 
-    </table>
-
-    <div class="search">
-        <!-- Data will be rendered here -->
+    <div class ="search">
+        <!-- Input field -->
+        <input type="text" id="material-search" placeholder="Insira o Nome do Material a Ser Pesquisado"> 
+        
+        <!-- Button to get input value -->
+        <button onclick="getValueForMaterialsTable()">Enviar</button> 
     </div>
 
+
     <div class="materials">
-        <!-- Data will be rendered here -->
+        <table name="materials-table" id ="materials-table"></table>
     </div>
 
     <script src="script.js"></script>
 </body>
-</html>
 
+</html>
