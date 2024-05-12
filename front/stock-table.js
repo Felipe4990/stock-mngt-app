@@ -1,6 +1,7 @@
 
-// ## Listing and Presentation ####################################################################
-
+// ## #############################################################################################
+// ## LISTING & PRESENTATION ######################################################################
+// ## #############################################################################################
 
 // Table button calls it onClick. Retrieves name filtered content from the Backend
 async function getValueForMaterialsTable() { 
@@ -40,10 +41,25 @@ function generateTable(data) {
                 cell.appendChild(text);
                 count++;
             } else if (count <= element.length + 1) {
-                cell.appendChild(document.createTextNode("#action_btn_edit"));
+                //cell.appendChild(document.createTextNode("#action_btn_edit"));
+                var editButton = document.createElement('button');
+                editButton.innerText="E";         
+                editButton.id = 'edit-button'
+                editButton.addEventListener('click', () => {
+                    // ~~~~
+                })
+                cell.appendChild(editButton);
+
                 count++;
             } else {
-                cell.appendChild(document.createTextNode("#action_btn_delete"));
+                //cell.appendChild(document.createTextNode("#action_btn_delete"));
+                var deleteButton = document.createElement('button');
+                deleteButton.innerText="D";         
+                deleteButton.id = 'delete-button'
+                deleteButton.addEventListener('click', () => {
+                    deleteElementFromtable(element[0]);
+                })
+                cell.appendChild(deleteButton);
             }
         }
     }
@@ -67,11 +83,13 @@ async function generateTableHead() {
 generateTableHead();
 
 
+// ## #############################################################################################
+// ## DELETION & EDITING ##########################################################################
+// ## #############################################################################################
 
-// ## Deletion ####################################################################################
-async function deleteElementFromtable(){    
-    const response = await fetch('http://localhost:8080/api/material/id/124', { method: 'DELETE' })
-        .then(() => element.innerHTML = 'Delete successful');
-
+// ## Deletes element from table and then refreshes said table
+async function deleteElementFromtable(materialId){    
+    const response = await fetch('http://localhost:8080/api/material/id/' + materialId, { method: 'DELETE' })
+        .then(() => getValueForMaterialsTable());
 }
 
