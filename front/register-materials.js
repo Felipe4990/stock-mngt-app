@@ -7,7 +7,7 @@ form.addEventListener("submit", (e) => {
 
     response = ajax({
         method: 'POST',
-        url: 'http://localhost:8080/api/materials',
+        url: 'http://localhost:8080/api/products',
         payload: formDataObj
     })
 

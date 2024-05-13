@@ -16,55 +16,55 @@ import java.util.List;
 public class StockController {
 
     @Autowired
-    MaterialService materialService;
+    ProductService productService;
 
     @Autowired
     private ModelMapper modelMapper;
     @CrossOrigin
-    @PostMapping(path = "/api/materials")
-    public ResponseEntity<MaterialDTO> saveMaterial(@RequestBody MaterialDTO materialDTO){
+    @PostMapping(path = "/api/products")
+    public ResponseEntity<ProductDTO> saveMaterial(@RequestBody ProductDTO productDTO){
 
         // Convert DTO to Entity
-        Material materialRequest = modelMapper.map(materialDTO, Material.class);
+        Product productRequest = modelMapper.map(productDTO, Product.class);
 
         // Save Product to MySQL
-        Material material = materialService.saveMaterial(materialRequest);
+        Product product = productService.saveProduct(productRequest);
 
         // Convert Entity to DTO
-        MaterialDTO materialResponse = modelMapper.map(material, MaterialDTO.class);
+        ProductDTO productResponse = modelMapper.map(product, ProductDTO.class);
 
-        return new ResponseEntity<MaterialDTO>(materialResponse, HttpStatus.CREATED);
+        return new ResponseEntity<ProductDTO>(productResponse, HttpStatus.CREATED);
     }
     @CrossOrigin
-    @DeleteMapping("/api/material/id/{id}")
-    public ResponseEntity<String> deleteMaterialById(@PathVariable(name = "id") Long id) {
+    @DeleteMapping("/api/product/id/{id}")
+    public ResponseEntity<String> deleteProductById(@PathVariable(name = "id") Long id) {
 
         // Delete Material from MySQL
-        materialService.deleteMaterialById(id);
+        productService.deleteProductById(id);
 
         return new ResponseEntity<String>(HttpStatus.OK);
     }
     @CrossOrigin
-    @GetMapping("/api/material/id/{id}")
-    public ResponseEntity<MaterialDTO> getMaterialById(@PathVariable(name = "id") Long id) {
+    @GetMapping("/api/product/id/{id}")
+    public ResponseEntity<ProductDTO> getProductById(@PathVariable(name = "id") Long id) {
 
         // Get Product from MySQL
-        Material material = materialService.getMaterialById(id);
+        Product product = productService.getProductById(id);
 
         // Convert Entity to DTO
-        MaterialDTO materialResponse = modelMapper.map(material, MaterialDTO.class);
+        ProductDTO productResponse = modelMapper.map(product, ProductDTO.class);
 
-        return ResponseEntity.ok().body(materialResponse);
+        return ResponseEntity.ok().body(productResponse);
     }
 
     @CrossOrigin
-    @GetMapping("/api/material/{name}")
-    public ResponseEntity<List<Material>> getMaterialByRegex(@PathVariable(name = "name") String name) {
+    @GetMapping("/api/product/{productName}")
+    public ResponseEntity<List<Product>> getProductsNameByRegex(@PathVariable(name = "productName") String name) {
 
         // Get Product from MySQL
-        List<Material> materials = materialService.getMaterialsByRegex(name);
+        List<Product> products = productService.getProductsNamesByRegex(name);
 
-        return ResponseEntity.ok().body(materials);
+        return ResponseEntity.ok().body(products);
     }
 
 

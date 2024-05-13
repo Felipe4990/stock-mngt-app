@@ -8,19 +8,19 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class MaterialServiceImpl implements MaterialService {
+public class ProductServiceImpl implements ProductService {
 
     @Autowired
-    MaterialRepository materialRepository;
+    ProductRepository productRepository;
 
     @Override
-    public Material saveMaterial(Material product) {
-        return materialRepository.save(product);
+    public Product saveProduct(Product product) {
+        return productRepository.save(product);
     }
 
     @Override
-    public Material getMaterialById(Long id) {
-        Optional<Material> result = materialRepository.findById(id);
+    public Product getProductById(Long id) {
+        Optional<Product> result = productRepository.findById(id);
         if(result.isPresent()) {
             return result.get();
         }else {
@@ -29,16 +29,16 @@ public class MaterialServiceImpl implements MaterialService {
     }
 
     @Override
-    public List<Material> getMaterialsByRegex(String regex) {
+    public List<Product> getProductsNamesByRegex(String regex) {
 
 
-        return materialRepository.getMaterialByRegex(regex);
+        return productRepository.getProductsNamesByRegex(regex);
     }
 
     @Override
-    public void deleteMaterialById(Long id) {
+    public void deleteProductById(Long id) {
 
-        materialRepository.deleteById(id);
+        productRepository.deleteById(id);
     }
 
 

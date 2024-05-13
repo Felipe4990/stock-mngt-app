@@ -10,7 +10,7 @@ async function getValueForMaterialsTable() {
     deleteContents();
 
     try {
-        const response = await fetch('http://localhost:8080/api/material/' + inputField.value);
+        const response = await fetch('http://localhost:8080/api/product/' + inputField.value);
         const data = await response.json();
         generateTable(data);
 
@@ -80,7 +80,7 @@ async function generateTableHead() {
     let thead = document.querySelector("table").createTHead();
     let row = thead.insertRow();
 
-    const titleArray = ["ID", "Material", "Conteúdo", "Preço", "Validade", "Fabricação", "S", "E", "D"];
+    const titleArray = ["ID", "Produto", "Fabricante", "Descrição", "Preço", "Validade", "Fabricação", "S", "E", "D"];
     for (var i in titleArray) {
         let th = document.createElement("th");
         let text = document.createTextNode(titleArray[i]);
@@ -99,7 +99,7 @@ generateTableHead();
 
 // ## Deletes element from table and then refreshes said table
 async function deleteElementFromTable(materialId){    
-    const response = await fetch('http://localhost:8080/api/material/id/' + materialId, { method: 'DELETE' })
+    const response = await fetch('http://localhost:8080/api/product/id/' + materialId, { method: 'DELETE' })
         .then(() => getValueForMaterialsTable());
 }
 
@@ -126,11 +126,12 @@ async function handleElementsForSending(element, row){
     }
     var materials = new Material();
     materials.id = materialsArray[0];
-    materials.name = materialsArray[1];
-    materials.description = materialsArray[2];
-    materials.price = materialsArray[3];
-    materials.expirationDate = materialsArray[4];
-    materials.purchaseDate = materialsArray[5];
+    materials.productName = materialsArray[1];
+    materials.manufacturer = materialsArray[2];
+    materials.description = materialsArray[3];
+    materials.price = materialsArray[4];
+    materials.expirationDate = materialsArray[5];
+    materials.purchaseDate = materialsArray[6];
 
     await sendingElementsToBackend(materials);
 }
@@ -139,7 +140,7 @@ async function handleElementsForSending(element, row){
 async function sendingElementsToBackend(data) {
     deleteContents();
     try {
-        const response = await fetch("http://localhost:8080/api/materials", {
+        const response = await fetch("http://localhost:8080/api/products", {
             method: "POST", // or 'PUT'
             headers: {
                 "Content-Type": "application/json",
@@ -155,9 +156,10 @@ async function sendingElementsToBackend(data) {
 
 }
 
-function Material(id, name, description, price, expirationDate, purchaseDate){
+function Material(id, productName, manufacturer, description, price, expirationDate, purchaseDate){
     this.id = id;
-    this.name = name;
+    this.productName = productName;
+    this.manufacturer = manufacturer;
     this.description = description;
     this.price = price;
     this.expirationDate = expirationDate;
