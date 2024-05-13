@@ -28,6 +28,15 @@ async function getContentsToTable(){
     getElementsToTable(inputField, searchingType);
     lastSearchType=searchingType;
 }
+// Table button calls it onClick for Regex on Product Contents
+async function getExpiringSoonToTable(){
+    let inputField = document.getElementById("expiration-input");
+    let searchingType = document.getElementById("expiration-button").getAttribute('data-arg1'); 
+    getElementsToTable(inputField, searchingType);
+    lastSearchType=searchingType;
+}
+
+
 
 // This makes sure that the tables gets refreshed from the last filtering type
 async function getElementsThroughRouter(){
@@ -37,6 +46,8 @@ async function getElementsThroughRouter(){
         getManufacturersToTable();
     } else if (lastSearchType=="content") {
         getContentsToTable();
+    } else if (lastSearchType=="expiration") {
+        getExpiringSoonToTable();
     }
 }
 
