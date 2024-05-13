@@ -46,7 +46,7 @@ function generateTable(data) {
                 saveButton.innerText="S";         
                 saveButton.id = 'save-button'
                 saveButton.addEventListener('click', () => {
-                    sendElementToDatabase(element, row);
+                    handleElementsForSending(element, row);
                 })
                 cell.appendChild(saveButton);
             } else if (count <= element.length + 2) {
@@ -107,7 +107,8 @@ async function deleteElementFromTable(materialId){
 async function editElementFromTable(element, row){
     for (let i=1; i < element.length; i++){
         const input = document.createElement("input");
-        input.setAttribute("value", element[i]);    
+        input.setAttribute("value", element[i]);
+        input.setAttribute("id", "mutant-input-" + i);
         row.cells[i].replaceChildren(input);
         if(i==1){
             input.focus();
@@ -115,8 +116,51 @@ async function editElementFromTable(element, row){
     }
 }
 
-async function sendElementToDatabase(element, row){
-    for (let i=1; i < element.length; i++){
-        console.log(element[i])
+// ## Handles and treats the changed TextInputs so it sits correctly in a Materials Object
+async function handleElementsForSending(element, row){
+    var materialsArray = [];
+    materialsArray[0] = element[0];
+    for (let i = 1; i < element.length; i++){
+        let input = document.getElementById("mutant-input-" + i).value;
+        materialsArray[i] = input;
     }
+    var materials = new Material();
+    materials.id = materialsArray[0];
+    materials.name = materialsArray[1];
+    materials.description = materialsArray[2];
+    materials.price = materialsArray[3];
+    materials.expirationDate = materialsArray[4];
+    materials.purchaseDate = materialsArray[5];
+
+    await sendingElementsToBackend(materials);
 }
+
+// ## Sends the treated Materials Object to the Backend so it updates a row of the same given id
+async function sendingElementsToBackend(data) {
+    deleteContents();
+    try {
+        const response = await fetch("http://localhost:8080/api/materials", {
+            method: "POST", // or 'PUT'
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        }).then(() => getValueForMaterialsTable());;
+
+        const result = await response.json();
+        console.log("Success:", result);
+    } catch (error) {
+        console.error("Error:", error);
+    }
+
+}
+
+function Material(id, name, description, price, expirationDate, purchaseDate){
+    this.id = id;
+    this.name = name;
+    this.description = description;
+    this.price = price;
+    this.expirationDate = expirationDate;
+    this.purchaseDate = purchaseDate;
+}
+
