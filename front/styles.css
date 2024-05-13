@@ -1,3 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+/* Reset CSS */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal; 
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9e2e6; /* Rosa claro */
+    color: #333; /* Cor do texto padrão */
+    text-align: center;
+}
+
+.svg{
+    width: 30px;
+    height: 30px;
+
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    margin-right: 20px;
+    max-height: 50px;
+}
+
+nav {
+    background-color: #fff; /* Branco */
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #333; /* Cor do texto padrão */
+    border-radius: 20px;
+    margin: 0 10px;
+}
+
+nav ul li a:hover {
+    background-color: #f46d8f; /* Rosa mais escuro ao passar o mouse */
+    color: white;
+}
+
+
+/* Estilização do formulário */
+form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    display: inline-block;
+    text-align: center;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+form input, form select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #f46d8f; /* Rosa mais escuro */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #f35a75; /* Tom de rosa mais escuro ao passar o mouse */
+}
+
+
+
+
 .container {
     display: flex;
     flex-wrap: wrap;
@@ -22,4 +132,45 @@
 
 .card p {
     margin: 10px 0;
+}
+
+#search-section{
+    background-color: #fff; /* Branco */
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: auto;
+    margin-left: 110px;
+    margin-right: 110px;
+}
+.search{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.search button{
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin-left: 15px;
+    background-color: #f46d8f; /* Rosa mais escuro */
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.search input{
+    width: 170px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#materials-section{
+    width: calc(100%-20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
