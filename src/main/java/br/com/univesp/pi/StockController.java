@@ -58,8 +58,8 @@ public class StockController {
     }
 
     @CrossOrigin
-    @GetMapping("/api/product/{productName}")
-    public ResponseEntity<List<Product>> getProductsNameByRegex(@PathVariable(name = "productName") String name) {
+    @GetMapping("/api/product/name/{productName}")
+    public ResponseEntity<List<Product>> getProductsNamesByRegex(@PathVariable(name = "productName") String name) {
 
         // Get Product from MySQL
         List<Product> products = productService.getProductsNamesByRegex(name);
@@ -67,6 +67,34 @@ public class StockController {
         return ResponseEntity.ok().body(products);
     }
 
+    @CrossOrigin
+    @GetMapping("/api/product/manufacturer/{manufacturer}")
+    public ResponseEntity<List<Product>> getProductsManufacturersByRegex(@PathVariable(name = "manufacturer") String name) {
+
+        // Get Product from MySQL
+        List<Product> products = productService.getProductsManufacturersByRegex(name);
+
+        return ResponseEntity.ok().body(products);
+    }
+
+    @CrossOrigin
+    @GetMapping("/api/product/content/{content}")
+    public ResponseEntity<List<Product>> getProductsContentsByRegex(@PathVariable(name = "content") String name) {
+
+        // Get Product from MySQL
+        List<Product> products = productService.getProductsContentsByRegex(name);
+
+        return ResponseEntity.ok().body(products);
+    }
+
+    //@CrossOrigin
+    //@GetMapping("/api/product/purchasedate/{purchasedate}")
+    //public ResponseEntity<List<Product>> getProductsPurchaseDatesByRegex(@PathVariable(name = "purchasedate") String name) {
+
+        // Get Product from MySQL
+    //    List<Product> products = productService.getProductsPurchaseDatesByRegex(name);
+
+    //    return ResponseEntity.ok().body(products);
 
 
 }

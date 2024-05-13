@@ -9,13 +9,22 @@
 </head>
 
 <body>
-    <div class="search">
-        <input type="text" id="material-search" placeholder="Insira o Nome do Material a Ser Pesquisado"> 
-        <button onclick="getValueForMaterialsTable()">Enviar</button> 
+    <div id="search-section">
+        <div id = "name-search" class="search">
+            <input type="text" id="name-input" placeholder="Insira o Nome do Produto a Ser Pesquisado"> 
+            <button id="name-button" onclick="getNamesToTable()" data-arg1='name'>Enviar</button> 
+        </div>
+        <div id = "manufacturer-search" class="search">
+            <input type="text" id="manufacturer-input" placeholder="Insira o Nome do Fabricante a Ser Pesquisado"> 
+            <button id="manufacturer-button" onclick="getManufacturersToTable()" data-arg1='manufacturer'>Enviar</button> 
+        </div>
+        <div id = "content-search" class="search">
+            <input type="text" id="content-input" placeholder="Insira o Conteúdo a Ser Pesquisado"> 
+            <button id="content-button" onclick="getContentsToTable()" data-arg1='content'>Enviar</button> 
+        </div>
     </div>
-    <!-- TODO: Increment to other fields-->
 
-    <div class="materials">
+    <div id = "materials-section" class="materials">
         <table name="materials-table" id ="materials-table"></table>
     </div>
 

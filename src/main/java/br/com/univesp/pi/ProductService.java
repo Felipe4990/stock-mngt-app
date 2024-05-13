@@ -9,5 +9,11 @@ public interface ProductService {
 
     List<Product> getProductsNamesByRegex(String regex);
 
+    List<Product> getProductsManufacturersByRegex(String regex);
+
+    List<Product> getProductsContentsByRegex(String regex);
+
+    //List<Product> getProductsPurchaseDatesByRegex(String regex);
+
     void deleteProductById(Long id);
 }

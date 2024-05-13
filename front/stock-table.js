@@ -3,14 +3,49 @@
 // ## LISTING & PRESENTATION ######################################################################
 // ## #############################################################################################
 
-// Table button calls it onClick. Retrieves name filtered content from the Backend
-async function getValueForMaterialsTable() { 
-    let inputField = document.getElementById("material-search"); 
-    
+var lastSearchType = "";
+
+// Table button calls it onClick for Regex on Product Names
+async function getNamesToTable(){
+    let inputField = document.getElementById("name-input");
+    let searchingType = document.getElementById("name-button").getAttribute('data-arg1'); 
+    getElementsToTable(inputField, searchingType);
+    lastSearchType=searchingType;
+}
+
+// Table button calls it onClick for Regex on Product Manufacturers
+async function getManufacturersToTable(){
+    let inputField = document.getElementById("manufacturer-input");
+    let searchingType = document.getElementById("manufacturer-button").getAttribute('data-arg1'); 
+    getElementsToTable(inputField, searchingType);
+    lastSearchType=searchingType;
+}
+
+// Table button calls it onClick for Regex on Product Contents
+async function getContentsToTable(){
+    let inputField = document.getElementById("content-input");
+    let searchingType = document.getElementById("content-button").getAttribute('data-arg1'); 
+    getElementsToTable(inputField, searchingType);
+    lastSearchType=searchingType;
+}
+
+// This makes sure that the tables gets refreshed from the last filtering type
+async function getElementsThroughRouter(){
+    if (lastSearchType=="name") {
+        getNamesToTable();
+    } else if (lastSearchType=="manufacturer") {
+        getManufacturersToTable();
+    } else if (lastSearchType=="content") {
+        getContentsToTable();
+    }
+}
+
+// Retrieves name filtered content from the Backend
+async function getElementsToTable(inputField, searchingType) { 
     deleteContents();
 
     try {
-        const response = await fetch('http://localhost:8080/api/product/' + inputField.value);
+        const response = await fetch('http://localhost:8080/api/product/' + searchingType + '/' + inputField.value);
         const data = await response.json();
         generateTable(data);
 
@@ -100,7 +135,7 @@ generateTableHead();
 // ## Deletes element from table and then refreshes said table
 async function deleteElementFromTable(materialId){    
     const response = await fetch('http://localhost:8080/api/product/id/' + materialId, { method: 'DELETE' })
-        .then(() => getValueForMaterialsTable());
+        .then(() => getElementsThroughRouter());
 }
 
 // ## Transforms all elements from a given row to TextInput
@@ -146,7 +181,7 @@ async function sendingElementsToBackend(data) {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(data),
-        }).then(() => getValueForMaterialsTable());;
+        }).then(() => getElementsThroughRouter());
 
         const result = await response.json();
         console.log("Success:", result);
