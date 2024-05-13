@@ -34,33 +34,43 @@ function generateTable(data) {
         let row = document.querySelector("table").insertRow();
 
         let count = 1
-        for (let i=0; i < element.length + 2; i++) {
+        for (let i=0; i < element.length + 3; i++) {
             let cell = row.insertCell();
             if (count <= element.length){
                 let text = document.createTextNode(element[i]);
                 cell.appendChild(text);
-                count++;
             } else if (count <= element.length + 1) {
+                //cell.appendChild(document.createTextNode("#action_btn_save"));
+                var saveButton = document.createElement('button');
+                
+                saveButton.innerText="S";         
+                saveButton.id = 'save-button'
+                saveButton.addEventListener('click', () => {
+                    sendElementToDatabase(element, row);
+                })
+                cell.appendChild(saveButton);
+            } else if (count <= element.length + 2) {
                 //cell.appendChild(document.createTextNode("#action_btn_edit"));
                 var editButton = document.createElement('button');
+
                 editButton.innerText="E";         
                 editButton.id = 'edit-button'
                 editButton.addEventListener('click', () => {
-                    // ~~~~
+                    editElementFromTable(element, row);        
                 })
                 cell.appendChild(editButton);
-
-                count++;
             } else {
                 //cell.appendChild(document.createTextNode("#action_btn_delete"));
                 var deleteButton = document.createElement('button');
+
                 deleteButton.innerText="D";         
                 deleteButton.id = 'delete-button'
                 deleteButton.addEventListener('click', () => {
-                    deleteElementFromtable(element[0]);
+                    deleteElementFromTable(element[0]);
                 })
                 cell.appendChild(deleteButton);
             }
+            count++;
         }
     }
 }
@@ -70,7 +80,7 @@ async function generateTableHead() {
     let thead = document.querySelector("table").createTHead();
     let row = thead.insertRow();
 
-    const titleArray = ["ID", "Material", "Conteúdo", "Preço", "Validade", "Fabricação", "E", "D"];
+    const titleArray = ["ID", "Material", "Conteúdo", "Preço", "Validade", "Fabricação", "S", "E", "D"];
     for (var i in titleArray) {
         let th = document.createElement("th");
         let text = document.createTextNode(titleArray[i]);
@@ -88,8 +98,25 @@ generateTableHead();
 // ## #############################################################################################
 
 // ## Deletes element from table and then refreshes said table
-async function deleteElementFromtable(materialId){    
+async function deleteElementFromTable(materialId){    
     const response = await fetch('http://localhost:8080/api/material/id/' + materialId, { method: 'DELETE' })
         .then(() => getValueForMaterialsTable());
 }
 
+// ## Transforms all elements from a given row to TextInput
+async function editElementFromTable(element, row){
+    for (let i=1; i < element.length; i++){
+        const input = document.createElement("input");
+        input.setAttribute("value", element[i]);    
+        row.cells[i].replaceChildren(input);
+        if(i==1){
+            input.focus();
+        }
+    }
+}
+
+async function sendElementToDatabase(element, row){
+    for (let i=1; i < element.length; i++){
+        console.log(element[i])
+    }
+}
