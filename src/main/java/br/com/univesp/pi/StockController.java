@@ -87,14 +87,14 @@ public class StockController {
         return ResponseEntity.ok().body(products);
     }
 
-    //@CrossOrigin
-    //@GetMapping("/api/product/purchasedate/{purchasedate}")
-    //public ResponseEntity<List<Product>> getProductsPurchaseDatesByRegex(@PathVariable(name = "purchasedate") String name) {
+    @CrossOrigin
+    @GetMapping("/api/product/expiration/{days}")
+    public ResponseEntity<List<Product>> getProductsSoonToBeExpiredByDays(@PathVariable(name = "days") String name) {
 
         // Get Product from MySQL
-    //    List<Product> products = productService.getProductsPurchaseDatesByRegex(name);
+        List<Product> products = productService.getProductsSoonToBeExpiredByDays(name);
 
-    //    return ResponseEntity.ok().body(products);
-
+        return ResponseEntity.ok().body(products);
+    }
 
 }

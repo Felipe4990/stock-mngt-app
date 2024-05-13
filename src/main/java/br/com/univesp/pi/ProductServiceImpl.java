@@ -40,10 +40,12 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> getProductsContentsByRegex(String regex) {
         return productRepository.getProductsContentsByRegex(regex);
     }
-    //@Override
-    //public List<Product> getProductsPurchaseDatesByRegex(String regex) {
-    //    return productRepository.getProductsPurchaseDatesByRegex(regex);
-    //}
+    @Override
+    public List<Product> getProductsSoonToBeExpiredByDays(String days) {
+
+
+        return productRepository.getProductsSoonToBeExpiredByDays(days);
+    }
 
     @Override
     public void deleteProductById(Long id) {

@@ -19,5 +19,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     public <T> ArrayList<T> getProductsContentsByRegex(@Param("regex") String regex);
 
     //@Query("SELECT id,productName,manufacturer,content,price,expirationDate,purchaseDate FROM Product WHERE purchaseDate LIKE CONCAT('%',:regex,'%')")
-    //public <T> ArrayList<T> getProductsPurchaseDatesByRegex(@Param("regex") String regex);
+    @Query(value = "SELECT id,product_name,manufacturer,content,price,expiration_date,purchase_date FROM product WHERE expiration_date < now() + INTERVAL ?1 day", nativeQuery = true)
+    public <T> ArrayList<T> getProductsSoonToBeExpiredByDays(@Param("regex") String days);
 }

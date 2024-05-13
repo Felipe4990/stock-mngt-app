@@ -13,7 +13,7 @@ public interface ProductService {
 
     List<Product> getProductsContentsByRegex(String regex);
 
-    //List<Product> getProductsPurchaseDatesByRegex(String regex);
+    List<Product> getProductsSoonToBeExpiredByDays(String regex);
 
     void deleteProductById(Long id);
 }
