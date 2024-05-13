@@ -19,7 +19,7 @@ public class ProductDTO {
 
     private String manufacturer;
 
-    private String description;
+    private String content;
 
     @Column(columnDefinition = "DATE")
     private LocalDate purchaseDate;

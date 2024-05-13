@@ -80,7 +80,7 @@ async function generateTableHead() {
     let thead = document.querySelector("table").createTHead();
     let row = thead.insertRow();
 
-    const titleArray = ["ID", "Produto", "Fabricante", "Descrição", "Preço", "Validade", "Fabricação", "S", "E", "D"];
+    const titleArray = ["ID", "Produto", "Fabricante", "Conteúdo", "Preço", "Validade", "Fabricação", "S", "E", "D"];
     for (var i in titleArray) {
         let th = document.createElement("th");
         let text = document.createTextNode(titleArray[i]);
@@ -128,7 +128,7 @@ async function handleElementsForSending(element, row){
     materials.id = materialsArray[0];
     materials.productName = materialsArray[1];
     materials.manufacturer = materialsArray[2];
-    materials.description = materialsArray[3];
+    materials.content = materialsArray[3];
     materials.price = materialsArray[4];
     materials.expirationDate = materialsArray[5];
     materials.purchaseDate = materialsArray[6];
@@ -156,10 +156,10 @@ async function sendingElementsToBackend(data) {
 
 }
 
-function Material(id, productName, manufacturer, description, price, expirationDate, purchaseDate){
+function Material(id, productName, content, description, price, expirationDate, purchaseDate){
     this.id = id;
     this.productName = productName;
-    this.manufacturer = manufacturer;
+    this.content = content;
     this.description = description;
     this.price = price;
     this.expirationDate = expirationDate;

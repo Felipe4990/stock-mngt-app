@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
-    @Query("SELECT id,productName,manufacturer,description,price,expirationDate,purchaseDate FROM Product WHERE productName LIKE CONCAT('%',:regex,'%')")
+    @Query("SELECT id,productName,manufacturer,content,price,expirationDate,purchaseDate FROM Product WHERE productName LIKE CONCAT('%',:regex,'%')")
     public <T> ArrayList<T> getProductsNamesByRegex(@Param("regex") String regex);
 
 }
