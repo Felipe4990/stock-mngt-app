@@ -1,14 +1,23 @@
 package br.com.univesp.pi;
 
+import jakarta.persistence.OrderBy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class ProductServiceImpl implements ProductService {
+
+    @Value("${app.pagination.max-hits-per-page}")
+    private int maxHitsPerPage;
 
     @Autowired
     ProductRepository productRepository;
@@ -29,22 +38,28 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> getProductsNamesByRegex(String regex) {
-        return productRepository.getProductsNamesByRegex(regex);
-    }
-    @Override
-    public List<Product> getProductsManufacturersByRegex(String regex) {
-        return productRepository.getProductsManufacturersByRegex(regex);
-    }
-    @Override
-    public List<Product> getProductsContentsByRegex(String regex) {
-        return productRepository.getProductsContentsByRegex(regex);
-    }
-    @Override
-    public List<Product> getProductsSoonToBeExpiredByDays(String days) {
+    public List<Product> getProductsNamesByRegex(String regex, Integer page) {
+        Pageable pageable = PageRequest.of(page, maxHitsPerPage);
 
+        return productRepository.getProductsNamesByRegex(regex, pageable);
+    }
+    @Override
+    public List<Product> getProductsManufacturersByRegex(String regex, Integer page) {
+        Pageable pageable = PageRequest.of(page, maxHitsPerPage);
 
-        return productRepository.getProductsSoonToBeExpiredByDays(days);
+        return productRepository.getProductsManufacturersByRegex(regex, pageable);
+    }
+    @Override
+    public List<Product> getProductsContentsByRegex(String regex, Integer page) {
+        Pageable pageable = PageRequest.of(page, maxHitsPerPage);
+
+        return productRepository.getProductsContentsByRegex(regex, pageable);
+    }
+    @Override
+    public List<Product> getProductsSoonToBeExpiredByDays(String days, Integer page) {
+        Pageable pageable = PageRequest.of(page, maxHitsPerPage);
+
+        return productRepository.getProductsSoonToBeExpiredByDays(days, pageable);
     }
 
     @Override
@@ -52,5 +67,17 @@ public class ProductServiceImpl implements ProductService {
         productRepository.deleteById(id);
     }
 
+    @Override
+    public List<Product> getProductsByPagination(Integer page){
+        Pageable pageable = PageRequest.of(page, maxHitsPerPage);
+
+        return productRepository.getProductsByPagination(pageable);
+    }
+
+    //@Override
+    //public List<Product> getProductsByPagination(Pageable pageable) {
+    //    Page<Product> pageUser = productRepository.findAll(pageable);
+    //    return pageUser.getContent();
+    //}
 
 }
