@@ -5,6 +5,23 @@
 
 var lastSearchType = "";
 
+// Load paginated Products on Page Load
+window.onload = async function() {
+    getPaginatedProducts();
+};
+
+// Get paginated Products from the Backend and then renders it on page
+async function getPaginatedProducts(){
+    try {
+        const response = await fetch('http://localhost:8080/api/products', { method: 'GET' });
+        const data = await response.json();
+        lastSearchType="initial-table";
+        generateTable(data);
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+}
+
 // Table button calls it onClick for Regex on Product Names
 async function getNamesToTable(){
     let inputField = document.getElementById("name-input");
@@ -48,6 +65,8 @@ async function getElementsThroughRouter(){
         getContentsToTable();
     } else if (lastSearchType=="expiration") {
         getExpiringSoonToTable();
+    } else if (lastSearchType=="initial-table"){
+        getPaginatedProducts();
     }
 }
 
