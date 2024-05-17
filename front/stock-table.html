@@ -10,37 +10,40 @@
 
 <body>
 
-       <nav>
-            <div class="nav-container">
-                <ul>
-                    <li><img class="svg" src="./img/home.svg" alt=""> <a href="index.html">Home</a></li>
-                    <li><img class="svg" src="./img/add.svg" alt=""><a href="register-materials.html">Adicionar Produto</a></li>
-                    <li><img class="svg" src="./img/view.svg" alt=""><a href="stock-table.html">Visualizar Estoque</a></li>
-                </ul>
-            </div>
-        </nav>
-    
+    <nav>
+        <div class="nav-container">
+            <ul>
+                <li><img class="svg" src="./img/home.svg" alt=""> <a href="index.html">Home</a></li>
+                <li><img class="svg" src="./img/add.svg" alt=""><a href="register-materials.html">Adicionar Produto</a>
+                </li>
+                <li><img class="svg" src="./img/view.svg" alt=""><a href="stock-table.html">Visualizar Estoque</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <div id="search-section">
-        <div id = "name-search" class="search">
-            <input type="text" id="name-input" placeholder="Insira o Nome do Produto a Ser Pesquisado"> 
-            <button id="name-button" onclick="getNamesToTable()" data-arg1='name'>Enviar</button> 
+        <div id="name-search" class="search">
+            <input type="text" id="name-input" placeholder="Insira o Nome do Produto a Ser Pesquisado">
+            <button id="name-button" onclick="getNamesToTable()" data-arg1='name'>Enviar</button>
         </div>
-        <div id = "manufacturer-search" class="search">
-            <input type="text" id="manufacturer-input" placeholder="Insira o Nome do Fabricantes a Ser Pesquisado"> 
-            <button id="manufacturer-button" onclick="getManufacturersToTable()" data-arg1='manufacturer'>Enviar</button> 
+        <div id="manufacturer-search" class="search">
+            <input type="text" id="manufacturer-input" placeholder="Insira o Nome do Fabricantes a Ser Pesquisado">
+            <button id="manufacturer-button" onclick="getManufacturersToTable()"
+                data-arg1='manufacturer'>Enviar</button>
         </div>
-        <div id = "content-search" class="search">
-            <input type="text" id="content-input" placeholder="Insira o Conteúdo a Ser Pesquisado"> 
-            <button id="content-button" onclick="getContentsToTable()" data-arg1='content'>Enviar</button> 
+        <div id="content-search" class="search">
+            <input type="text" id="content-input" placeholder="Insira o Conteúdo a Ser Pesquisado">
+            <button id="content-button" onclick="getContentsToTable()" data-arg1='content'>Enviar</button>
         </div>
-        <div id = "expiration-search" class="search">
-            <input type="text" id="expiration-input" placeholder="Insira o Número de Dias Para Produtos Próximos de Expirarem"> 
-            <button id="expiration-button" onclick="getExpiringSoonToTable()" data-arg1='expiration'>Enviar</button> 
+        <div id="expiration-search" class="search">
+            <input type="text" id="expiration-input"
+                placeholder="Insira o Número de Dias Para Produtos Próximos de Expirarem">
+            <button id="expiration-button" onclick="getExpiringSoonToTable()" data-arg1='expiration'>Enviar</button>
         </div>
     </div>
 
-    <div id = "materials-section" class="materials">
-        <table name="materials-table" id ="materials-table"></table>
+    <div id="materials-section" class="materials">
+        <table name="materials-table" id="materials-table"></table>
     </div>
     <div class="pagination">
         <button class="backward" onclick="goToFirstPage()" id="first">first</button>
@@ -50,7 +53,31 @@
     </div>
 
 
+
+
+    <!--
+    <button onclick="Popup()" role='button'>
+        Show Alert
+    </button>
+    -->
+
+    <dialog id="dialog-notification-id">
+        <div></div>
+        <form method="dialog">
+            <button>OK</button>
+        </form>
+        <div id="expiration-message">
+            <p>Fique Atento! Alguns dos produtos abaixo estão Próximos de Expirar!</p>
+            <p>Confira a Lista Completa na Tabela Principal</p>
+        </div>
+        <table name="dialog-table" id="dialog-table"></table>
+    </dialog>
+
+
+
+
     <script src="stock-table.js"></script>
+    <script src="alarm.js"></script>
 </body>
 
 </html>

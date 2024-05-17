@@ -1,8 +1,14 @@
-app:
+back-app:
   pagination:
     max-hits-per-page: 5
+front-app:
+  expiration-track-range: 30
 
 spring:
+  devtools:
+    livereload:
+      enabled:
+        true
   datasource:
     url: jdbc:mysql://localhost:33060/stock-db
     username: root

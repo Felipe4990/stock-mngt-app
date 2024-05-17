@@ -16,7 +16,7 @@ import java.util.Optional;
 @Service
 public class ProductServiceImpl implements ProductService {
 
-    @Value("${app.pagination.max-hits-per-page}")
+    @Value("${back-app.pagination.max-hits-per-page}")
     private int maxHitsPerPage;
 
     @Autowired

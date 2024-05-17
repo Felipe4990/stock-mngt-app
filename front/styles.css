@@ -1,21 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
 /* Reset CSS */
-body, h1, h2, h3, p, ul, li {
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+li {
     margin: 0;
     padding: 0;
     font-family: "Josefin Sans", sans-serif;
     font-optical-sizing: auto;
-    font-style: normal; 
+    font-style: normal;
 }
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f9e2e6; /* Rosa claro */
-    color: #333; /* Cor do texto padrão */
+    background-color: #f9e2e6;
+    /* Rosa claro */
+    color: #333;
+    /* Cor do texto padrão */
     text-align: center;
 }
 
-.svg{
+.svg {
     width: 30px;
     height: 30px;
 
@@ -33,7 +42,8 @@ body {
 }
 
 nav {
-    background-color: #fff; /* Branco */
+    background-color: #fff;
+    /* Branco */
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 20px;
@@ -55,13 +65,15 @@ nav ul li a {
     display: inline-block;
     padding: 10px 20px;
     text-decoration: none;
-    color: #333; /* Cor do texto padrão */
+    color: #333;
+    /* Cor do texto padrão */
     border-radius: 20px;
     margin: 0 10px;
 }
 
 nav ul li a:hover {
-    background-color: #f46d8f; /* Rosa mais escuro ao passar o mouse */
+    background-color: #f46d8f;
+    /* Rosa mais escuro ao passar o mouse */
     color: white;
 }
 
@@ -84,7 +96,8 @@ form label {
     font-style: normal;
 }
 
-form input, form select {
+form input,
+form select {
     width: calc(100% - 20px);
     padding: 10px;
     margin-bottom: 5px;
@@ -93,7 +106,8 @@ form input, form select {
 }
 
 form button {
-    background-color: #f46d8f; /* Rosa mais escuro */
+    background-color: #f46d8f;
+    /* Rosa mais escuro */
     color: white;
     border: none;
     padding: 10px 20px;
@@ -102,7 +116,8 @@ form button {
 }
 
 form button:hover {
-    background-color: #f35a75; /* Tom de rosa mais escuro ao passar o mouse */
+    background-color: #f35a75;
+    /* Tom de rosa mais escuro ao passar o mouse */
 }
 
 
@@ -134,8 +149,9 @@ form button:hover {
     margin: 10px 0;
 }
 
-#search-section{
-    background-color: #fff; /* Branco */
+#search-section {
+    background-color: #fff;
+    /* Branco */
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 20px;
@@ -147,30 +163,49 @@ form button:hover {
     margin-left: 110px;
     margin-right: 110px;
 }
-.search{
+
+.search {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
 }
-.search button{
+
+.search button {
     padding: 10px 20px;
     border-radius: 20px;
     margin-left: 15px;
-    background-color: #f46d8f; /* Rosa mais escuro */
+    background-color: #f46d8f;
+    /* Rosa mais escuro */
     color: white;
     border: none;
     cursor: pointer;
 }
-.search input{
+
+.search input {
     width: 170px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-#materials-section{
+#materials-section {
     width: calc(100%-20px);
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
