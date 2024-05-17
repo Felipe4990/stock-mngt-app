@@ -4,18 +4,26 @@
 // ## #############################################################################################
 
 var lastSearchType = "";
+var paginationNumber = "0";
+
+
+function definePaginationNumber(incoming){
+    paginationNumber
+}
 
 // Load paginated Products on Page Load
-window.onload = async function() {
-    getPaginatedProducts();
+window.onload = async function () {
+    getPaginatedProducts(paginationNumber);
 };
 
 // Get paginated Products from the Backend and then renders it on page
-async function getPaginatedProducts(){
+async function getPaginatedProducts(paginationNumber) {
+    deleteContents();
+
     try {
-        const response = await fetch('http://localhost:8080/api/products', { method: 'GET' });
+        const response = await fetch('http://localhost:8080/api/products?page=' + paginationNumber, { method: 'GET' });
         const data = await response.json();
-        lastSearchType="initial-table";
+        lastSearchType = "initial-table";
         generateTable(data);
     } catch (error) {
         console.error('Error fetching data:', error);
@@ -23,73 +31,73 @@ async function getPaginatedProducts(){
 }
 
 // Table button calls it onClick for Regex on Product Names
-async function getNamesToTable(){
+async function getNamesToTable() {
     let inputField = document.getElementById("name-input");
-    let searchingType = document.getElementById("name-button").getAttribute('data-arg1'); 
-    getElementsToTable(inputField, searchingType);
-    lastSearchType=searchingType;
+    let searchingType = document.getElementById("name-button").getAttribute('data-arg1');
+    getElementsToTable(inputField, searchingType, paginationNumber);
+    lastSearchType = searchingType;
 }
 
 // Table button calls it onClick for Regex on Product Manufacturers
-async function getManufacturersToTable(){
+async function getManufacturersToTable() {
     let inputField = document.getElementById("manufacturer-input");
-    let searchingType = document.getElementById("manufacturer-button").getAttribute('data-arg1'); 
-    getElementsToTable(inputField, searchingType);
-    lastSearchType=searchingType;
+    let searchingType = document.getElementById("manufacturer-button").getAttribute('data-arg1');
+    getElementsToTable(inputField, searchingType, paginationNumber);
+    lastSearchType = searchingType;
 }
 
 // Table button calls it onClick for Regex on Product Contents
-async function getContentsToTable(){
+async function getContentsToTable() {
     let inputField = document.getElementById("content-input");
-    let searchingType = document.getElementById("content-button").getAttribute('data-arg1'); 
-    getElementsToTable(inputField, searchingType);
-    lastSearchType=searchingType;
+    let searchingType = document.getElementById("content-button").getAttribute('data-arg1');
+    getElementsToTable(inputField, searchingType, paginationNumber);
+    lastSearchType = searchingType;
 }
 // Table button calls it onClick for Regex on Product Contents
-async function getExpiringSoonToTable(){
+async function getExpiringSoonToTable() {
     let inputField = document.getElementById("expiration-input");
-    let searchingType = document.getElementById("expiration-button").getAttribute('data-arg1'); 
-    getElementsToTable(inputField, searchingType);
-    lastSearchType=searchingType;
+    let searchingType = document.getElementById("expiration-button").getAttribute('data-arg1');
+    getElementsToTable(inputField, searchingType, paginationNumber);
+    lastSearchType = searchingType;
 }
 
 
 
 // This makes sure that the tables gets refreshed from the last filtering type
-async function getElementsThroughRouter(){
-    if (lastSearchType=="name") {
+async function getElementsThroughRouter(paginationNumber) {
+    if (lastSearchType == "name") {
         getNamesToTable();
-    } else if (lastSearchType=="manufacturer") {
+    } else if (lastSearchType == "manufacturer") {
         getManufacturersToTable();
-    } else if (lastSearchType=="content") {
+    } else if (lastSearchType == "content") {
         getContentsToTable();
-    } else if (lastSearchType=="expiration") {
+    } else if (lastSearchType == "expiration") {
         getExpiringSoonToTable();
-    } else if (lastSearchType=="initial-table"){
-        getPaginatedProducts();
+    } else if (lastSearchType == "initial-table") {
+        getPaginatedProducts(paginationNumber);
     }
 }
 
 // Retrieves name filtered content from the Backend
-async function getElementsToTable(inputField, searchingType) { 
+async function getElementsToTable(inputField, searchingType, paginationNumber) {
     deleteContents();
 
     try {
-        const response = await fetch('http://localhost:8080/api/product/' + searchingType + '/' + inputField.value);
+        const response = await fetch('http://localhost:8080/api/product/' + searchingType + '/' + inputField.value + '?page=' +  paginationNumber);
         const data = await response.json();
         generateTable(data);
 
     } catch (error) {
         console.error('Error fetching data:', error);
     }
-} 
+}
 
 // Deletes all the non header rows of table prior to refreshing the filter's contents 
-function deleteContents(){
+function deleteContents() {
     var myTable = document.getElementById("materials-table");
     var rowCount = myTable.rows.length;
-    for (var x=rowCount-1; x>0; x--) {
-       myTable.deleteRow(x);
+    for (var x = rowCount - 1; x > 0; x--) {
+        myTable.deleteRow(x);
     }
 }
 
@@ -99,36 +107,36 @@ function generateTable(data) {
         let row = document.querySelector("table").insertRow();
 
         let count = 1
-        for (let i=0; i < element.length + 3; i++) {
+        for (let i = 0; i < element.length + 3; i++) {
             let cell = row.insertCell();
-            if (count <= element.length){
+            if (count <= element.length) {
                 let text = document.createTextNode(element[i]);
                 cell.appendChild(text);
             } else if (count <= element.length + 1) {
                 //cell.appendChild(document.createTextNode("#action_btn_save"));
                 var saveButton = document.createElement('button');
-                
-                saveButton.innerText="S";         
+
+                saveButton.innerText = "S";
                 saveButton.id = 'save-button'
                 saveButton.addEventListener('click', () => {
-                    handleElementsForSending(element, row);
+                    handleElementsForSending(element, row, 0);
                 })
                 cell.appendChild(saveButton);
             } else if (count <= element.length + 2) {
                 //cell.appendChild(document.createTextNode("#action_btn_edit"));
                 var editButton = document.createElement('button');
 
-                editButton.innerText="E";         
+                editButton.innerText = "E";
                 editButton.id = 'edit-button'
                 editButton.addEventListener('click', () => {
-                    editElementFromTable(element, row);        
+                    editElementFromTable(element, row);
                 })
                 cell.appendChild(editButton);
             } else {
                 //cell.appendChild(document.createTextNode("#action_btn_delete"));
                 var deleteButton = document.createElement('button');
 
-                deleteButton.innerText="D";         
+                deleteButton.innerText = "D";
                 deleteButton.id = 'delete-button'
                 deleteButton.addEventListener('click', () => {
                     deleteElementFromTable(element[0]);
@@ -163,29 +171,29 @@ generateTableHead();
 // ## #############################################################################################
 
 // ## Deletes element from table and then refreshes said table
-async function deleteElementFromTable(materialId){    
+async function deleteElementFromTable(materialId) {
     const response = await fetch('http://localhost:8080/api/product/id/' + materialId, { method: 'DELETE' })
         .then(() => getElementsThroughRouter());
 }
 
 // ## Transforms all elements from a given row to TextInput
-async function editElementFromTable(element, row){
-    for (let i=1; i < element.length; i++){
+async function editElementFromTable(element, row) {
+    for (let i = 1; i < element.length; i++) {
         const input = document.createElement("input");
         input.setAttribute("value", element[i]);
         input.setAttribute("id", "mutant-input-" + i);
         row.cells[i].replaceChildren(input);
-        if(i==1){
+        if (i == 1) {
             input.focus();
         }
     }
 }
 
 // ## Handles and treats the changed TextInputs so it sits correctly in a Materials Object
-async function handleElementsForSending(element, row){
+async function handleElementsForSending(element, row, paginationNumber) {
     var materialsArray = [];
     materialsArray[0] = element[0];
-    for (let i = 1; i < element.length; i++){
+    for (let i = 1; i < element.length; i++) {
         let input = document.getElementById("mutant-input-" + i).value;
         materialsArray[i] = input;
     }
@@ -198,11 +206,11 @@ async function handleElementsForSending(element, row){
     materials.expirationDate = materialsArray[5];
     materials.purchaseDate = materialsArray[6];
 
-    await sendingElementsToBackend(materials);
+    await sendingElementsToBackend(materials, paginationNumber);
 }
 
 // ## Sends the treated Materials Object to the Backend so it updates a row of the same given id
-async function sendingElementsToBackend(data) {
+async function sendingElementsToBackend(data, paginationNumber) {
     deleteContents();
     try {
         const response = await fetch("http://localhost:8080/api/products", {
@@ -211,7 +219,7 @@ async function sendingElementsToBackend(data) {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(data),
-        }).then(() => getElementsThroughRouter());
+        }).then(() => getElementsThroughRouter(paginationNumber));
 
         const result = await response.json();
         console.log("Success:", result);
@@ -221,7 +229,7 @@ async function sendingElementsToBackend(data) {
 
 }
 
-function Material(id, productName, content, description, price, expirationDate, purchaseDate){
+function Material(id, productName, content, description, price, expirationDate, purchaseDate) {
     this.id = id;
     this.productName = productName;
     this.content = content;
@@ -231,3 +239,91 @@ function Material(id, productName, content, description, price, expirationDate, 
     this.purchaseDate = purchaseDate;
 }
 
+
+
+// ## #############################################################################################
+// ## PAGINATION ##################################################################################
+// ## #############################################################################################
+
+
+async function goToFirstPage() {
+    paginationNumber = 0;
+    if (lastSearchType == "name") {
+        getNamesToTable();
+    } else if (lastSearchType == "manufacturer") {
+        getManufacturersToTable();
+    } else if (lastSearchType == "content") {
+        getContentsToTable();
+    } else if (lastSearchType == "expiration") {
+        getExpiringSoonToTable();
+    } else if (lastSearchType == "initial-table") {
+        getPaginatedProducts(paginationNumber);
+    }
+}
+
+async function goBackward() {
+    if(paginationNumber >= 1){
+        paginationNumber--;
+        if (lastSearchType == "name") {
+            getNamesToTable();
+        } else if (lastSearchType == "manufacturer") {
+            getManufacturersToTable();
+        } else if (lastSearchType == "content") {
+            getContentsToTable();
+        } else if (lastSearchType == "expiration") {
+            getExpiringSoonToTable();
+        } else if (lastSearchType == "initial-table") {
+            getPaginatedProducts(paginationNumber);
+        }
+    }
+}
+
+async function goForward() {
+    this.paginationNumber++;
+
+    if (lastSearchType == "name") {
+        getNamesToTable();
+    } else if (lastSearchType == "manufacturer") {
+        getManufacturersToTable();
+    } else if (lastSearchType == "content") {
+        getContentsToTable();
+    } else if (lastSearchType == "expiration") {
+        getExpiringSoonToTable();
+    } else if (lastSearchType == "initial-table") {
+        getPaginatedProducts(paginationNumber);
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+//async function paginated_fetch(
+//    url = is_required("url"), // Improvised required argument in JS
+//    page = 1,
+//    previousResponse = []
+//  ) {
+//    return await fetch(`${url}&page=${page}`
+//    ) // Append the page number to the base URL
+//      .then(response => response.json())
+//      .then(newResponse => {
+//        const response = [...previousResponse, ...newResponse]; // Combine the two arrays
+//  
+//        if (newResponse.length !== 0) {
+//          page++;
+//  
+//          return paginated_fetch(url, page, response);
+//        }
+//  
+//        return response;
+//      });
+//  }

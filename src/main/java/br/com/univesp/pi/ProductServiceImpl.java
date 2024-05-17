@@ -70,7 +70,6 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<Product> getProductsByPagination(Integer page){
         Pageable pageable = PageRequest.of(page, maxHitsPerPage);
-
         return productRepository.getProductsByPagination(pageable);
     }
 

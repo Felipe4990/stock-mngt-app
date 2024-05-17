@@ -42,6 +42,13 @@
     <div id = "materials-section" class="materials">
         <table name="materials-table" id ="materials-table"></table>
     </div>
+    <div class="pagination">
+        <button class="backward" onclick="goToFirstPage()" id="first">first</button>
+        <button class="backward" onclick="goBackward()" id="prev">previous</button>
+        <button class="forward" onclick="goForward()" id="next">next</button>
+        <div class="page-numbers" id="pageNumbers"></div>
+    </div>
+
 
     <script src="stock-table.js"></script>
 </body>
