@@ -1,0 +1,21 @@
+back-app:
+  pagination:
+    max-hits-per-page: 5
+front-app:
+  expiration-track-range: 30
+spring:
+  devtools:
+    livereload:
+      enabled:
+        true
+  datasource:
+    url: jdbc:mysql://localhost:33060/stock-db
+    username: root
+    password: bar
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
