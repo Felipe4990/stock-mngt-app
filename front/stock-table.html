@@ -21,94 +21,62 @@
     </nav>
 
 
-
-
-
-
-
-<!--
     <div id="search-section" class="section-container">
         <table id="search-table">
-            <th>
-                <th>Company</th>
-                <th>Contact</th>
-                <th>Country</th>
-            </th>
-            <tr>
-                <td>Alfreds Futterkiste</td>
-                <td>Maria Anders</td>
-                <td>Germany</td>
+            <tr class="search-section-row">
+                <td class="search-section-labels">Produto:</td>
+                <td class="search-section-values">
+                    <div id="name-search" class="search">
+                        <input type="text" 
+                               id="name-input" 
+                               placeholder="Insira o Nome do Produto a Ser Pesquisado"><button type="image" 
+                                                                                               id="name-button" 
+                                                                                               onclick="getNamesToTable()" 
+                                                                                               data-arg1='name'></button>
+                    </div>
+                </td>
             </tr>
-            <tr>
-                <td>Centro comercial Moctezuma</td>
-                <td>Francisco Chang</td>
-                <td>Mexico</td>
+            <tr class="search-section-row">
+                <td class="search-section-labels">Fabricante:</td>
+                <td class="search-section-values">
+                    <div id="manufacturer-search" class="search">
+                        <input type="text" 
+                               id="manufacturer-input" 
+                               placeholder="Insira o Nome do Fabricantes a Ser Pesquisado"><button type="image"
+                                                                                                   id="manufacturer-button" 
+                                                                                                   onclick="getManufacturersToTable()" 
+                                                                                                   data-arg1='manufacturer'></button>
+                    </div>                                                                                                   
+                </td>
             </tr>
+            <tr class="search-section-row">
+                <td class="search-section-labels">Conteúdo:</td>
+                <td class="search-section-values">
+                    <div id="content-search" class="search">
+                        <input type="text" 
+                               id="content-input" 
+                               placeholder="Insira o Conteúdo a Ser Pesquisado"><button type="image"
+                                                                                        id="content-button" 
+                                                                                        onclick="getContentsToTable()" 
+                                                                                        data-arg1='content'></button>
+                    </div>
+                </td>
+            </tr>
+            <tr class="search-section-row">
+                <td class="search-section-labels">Expiração:</td>
+                <td class="search-section-values">
+                    <div id="expiration-search" class="search">
+                        <input type="text" 
+                               id="expiration-input"
+                               placeholder="Insira o Número de Dias Para Produtos Próximos de Expirarem"><button type="image"
+                                                                                                                 id="expiration-button" 
+                                                                                                                 onclick="getExpiringSoonToTable()" 
+                                                                                                                 data-arg1='expiration'></button>
+                    </div>
+                </td>
+            </tr>            
         </table>
     </div>
--->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!--
-            -->
-    <div id="search-section" class="section-container">
-            <div id="name-search" class="search">Produto:
-                <input type="text" 
-                       id="name-input" 
-                       placeholder="Insira o Nome do Produto a Ser Pesquisado"><button type="image" 
-                                                                                       id="name-button" 
-                                                                                       onclick="getNamesToTable()" 
-                                                                                       data-arg1='name'></button>
-            </div>
-            <div id="manufacturer-search" class="search">Fabricante:
-                <input type="text" 
-                       id="manufacturer-input" 
-                       placeholder="Insira o Nome do Fabricantes a Ser Pesquisado"><button type="image"
-                                                                                           id="manufacturer-button" 
-                                                                                           onclick="getManufacturersToTable()" 
-                                                                                           data-arg1='manufacturer'></button>
-            </div>
-            <div id="content-search" class="search">Conteúdo:
-                <input type="text" 
-                       id="content-input" 
-                       placeholder="Insira o Conteúdo a Ser Pesquisado"><button type="image"
-                                                                                id="content-button" 
-                                                                                onclick="getContentsToTable()" 
-                                                                                data-arg1='content'></button>
-            </div>
-            <div id="expiration-search" class="search">Expiração:
-                <input type="text" 
-                       id="expiration-input"
-                       placeholder="Insira o Número de Dias Para Produtos Próximos de Expirarem"><button type="image"
-                                                                                                         id="expiration-button" 
-                                                                                                         onclick="getExpiringSoonToTable()" 
-                                                                                                         data-arg1='expiration'></button>
-            </div>
-    </div>
-
-
-
-
-
-
-
-
-
-
 
 
     

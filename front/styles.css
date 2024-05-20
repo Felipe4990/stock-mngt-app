@@ -32,6 +32,7 @@ body {
 }
 
 #search-section{
+    text-align: center
     font-family: "Belleza";
     font-size: 20px;
 }
@@ -61,18 +62,6 @@ body {
     border-radius: 11px;
     cursor: pointer;
 }
-
-
-
-
-
-
-
-#search-section{
-   text-align: center
-}
-
-
 
 
 
@@ -111,4 +100,16 @@ body {
 }
 #expiration-input{
     width: 80%;
+}
+
+#search-table {
+    width: 100%;
+}
+
+.search-section-labels {
+    text-align: right;
+    width: 24%;
+}
+.search-section-values {
+    text-align: left;
 }
