@@ -19,6 +19,9 @@ window.onload = async function () {
 // Get paginated Products from the Backend and then renders it on page
 async function getPaginatedProducts(paginationNumber) {
     deleteContents();
+    if(paginationNumber == null){
+        paginationNumber=0;
+    }
 
     try {
         const response = await fetch('http://localhost:8080/api/products?page=' + paginationNumber, { method: 'GET' });
@@ -104,7 +107,9 @@ function deleteContents() {
 // Generate new rows into the table for all the filtered results 
 function generateTable(data) {
     for (let element of data) {
-        let row = document.querySelector("table").insertRow();
+        
+        let row = document.getElementById("materials-table").insertRow();
+        //let row = document.querySelector("table").insertRow();
 
         let count = 1
         for (let i = 0; i < element.length + 3; i++) {
@@ -150,7 +155,9 @@ function generateTable(data) {
 
 // Generates the Table Header
 async function generateTableHead() {
-    let thead = document.querySelector("table").createTHead();
+    let thead =  document.getElementById("materials-table").createTHead();
+    //let thead = document.querySelector("table").createTHead();
+
     let row = thead.insertRow();
 
     const titleArray = ["ID", "Produto", "Fabricante", "Conteúdo", "Preço", "Validade", "Fabricação", "S", "E", "D"];
