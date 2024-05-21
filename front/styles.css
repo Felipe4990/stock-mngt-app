@@ -206,6 +206,59 @@ nav ul li a:hover {
 
 
 
+/*
+###############################
+## Dialog Table Section #######
+############################### */
+#dialog-table {
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;   
+    font-family: "Open Sans";
+    font-size: smaller;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#dialog-table td,  #dialog-table th {
+    border: 1px solid rgb(229, 140, 161);
+
+}
+
+#expiration-message {
+    font-family: "Belleza";
+    font-size: larger;
+}
+
+#dialog-button-id {
+    background-color: rgb(229, 140, 161);
+    font-family: "Belleza";
+    font-size: 19px;
+    color: white;
+    border: none;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 13px;
+    padding-right: 13px;
+    border-radius: 11px;
+    cursor: pointer;
+}
+
+#dialog-button-id:hover {
+    background-color: #f46d8f;
+    color: white;
+    font-family: "Belleza";
+    font-size: 19px;
+    color: white;
+    border: none;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 13px;
+    padding-right: 13px;
+    border-radius: 11px;
+    cursor: pointer;
+}
+
+
 
 
 
@@ -217,9 +270,7 @@ nav ul li a:hover {
 ###############################
 ## Register Section ###########
 ############################### */
-#insertion-section-id{
 
-}
 #register-section{
     text-align: center;
     font-family: "Belleza";
@@ -275,6 +326,7 @@ nav ul li a:hover {
     padding-right: 13px;
     border-radius: 11px;
     cursor: pointer;
+    margin-top: 2%;
 }
 #submit-button-id:hover {
     background-color: #f46d8f;
@@ -290,3 +342,17 @@ nav ul li a:hover {
     border-radius: 11px;
     cursor: pointer;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
