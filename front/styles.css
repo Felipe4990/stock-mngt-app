@@ -17,6 +17,7 @@ body {
     padding-bottom: 1.5%;   
     font-family: "Open Sans";
     font-size: smaller;
+    color: rgb(121, 86, 94);
 }
 #materials-table{
     border-collapse: collapse;
@@ -40,8 +41,28 @@ body {
     background-repeat: no-repeat;
     height: 22px;
 }
+#save-button:hover {
+    background-image: url(./img/save-icon-hover.png);
+    background-color: whitesmoke;
+    border: none;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 22px;
+}
 #edit-button {
     background-image: url(./img/pen-icon.png);
+    background-color: whitesmoke;
+    border: none;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 22px;
+}
+#edit-button:hover {
+    background-image: url(./img/pen-icon-hover.png);
     background-color: whitesmoke;
     border: none;
     cursor: pointer;
@@ -60,6 +81,20 @@ body {
     background-repeat: no-repeat;
     height: 22px;
 }
+#delete-button:hover {
+    background-image: url(./img/trash-icon-hover.png);
+    background-color: whitesmoke;
+    border: none;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 22px;
+}
+.mutant-input-class{
+    width: 90%;
+    display: inline;
+}
 
 
 /*
@@ -67,6 +102,7 @@ body {
 ## Search Section #############
 ############################### */
 #search-section{
+    color: rgb(212, 130, 146);
     text-align: center;
     font-family: "Belleza";
     font-size: larger;
@@ -259,30 +295,18 @@ nav ul li a:hover {
 }
 
 
-
-
-
-
-
-
-
 /*
 ###############################
 ## Register Section ###########
 ############################### */
 
-#register-section{
-    text-align: center;
-    font-family: "Belleza";
-    font-size: larger;
-}
-
 #register-table {
     width: 100%;
+    color: rgb(212, 130, 146);
 }
 .register-section-labels {
     text-align: left;
-    width: 25%
+    width: 13%
 }
 .register-section-values {
     text-align: right;
@@ -293,25 +317,32 @@ nav ul li a:hover {
     font-size: larger;
 }
 #productName {
-    width: 98%
+    width: 98%;
+    color: rgb(121, 86, 94);
 }
 #content {
     width: 98%;
+    color: rgb(121, 86, 94);
 }
 #manufacturer {
     width: 98%;
+    color: rgb(121, 86, 94);
 }
 #price {
     width: 98%;
+    color: rgb(121, 86, 94);
 }
 #number {
     width: 98%;
+    color: rgb(121, 86, 94);
 }
 #expirationDate {
     width: 98%;
+    color: rgb(121, 86, 94);    
 }
 #purchaseDate {
     width: 98%;
+    color: rgb(121, 86, 94);
 }
 
 #submit-button-id {
@@ -356,3 +387,10 @@ nav ul li a:hover {
 
 
 
+
+#welcome-message-id {
+    color: rgb(212, 130, 146);
+    text-align: center;
+    font-family: "Belleza";
+    font-size: xx-large;
+}

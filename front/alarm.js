@@ -1,21 +1,29 @@
+runDialogPerDay();
 
-//setInterval(tick, 1000 * 20);
-//function tick() {
-//    runAtSpecificTimeOfDay(19, 2, () => { firstFunction });
-//}
+// Checks if a day has passed
+function hasOneDayPassed() {
+    var date = new Date().toLocaleDateString();
+    if (localStorage.stockControlDailyRunDate == date){
+        return false;
+    }
+    localStorage.stockControlDailyRunDate = date;
+    return true;
+}
 
-var ranToday = false;
+// Run the Notification Code only once per day
+function runDialogPerDay() {
+    if (!hasOneDayPassed()) {
+        return false;
+    }
+    getSoonToExpireProducts();
+}
 
-
-firstFunction();
-
-
-//1. Create a new function that returns a promise
-function firstFunction() {
+// Retrieves the current expiration threshold from the backend 
+// Then retrieves those products that are to expire from up to that threshold
+function getSoonToExpireProducts() {
     fetch("http://localhost:8080/api/admin/flag/expiration-track-range").then(response => {
         return response.json();
     }).then(dt1 => {
-        console.log("This is some data from First: " + dt1);
         fetch('http://localhost:8080/api/product/expiration/' + dt1 + '?page=0').then(res =>{
             return res.json();
         }).then(dt2 => {
@@ -31,39 +39,6 @@ function firstFunction() {
     }).catch(err => {
         console.log("Some Error: " + err);
     });
-}
-
-
-//2. Create an async function
-//function secondFunction() {
-//    console.log('Before first call.');
-//
-//    const result = await firstFunction();
-//    console.log("first function returned: " + result);
-//
-//    //var res = fetch('http://localhost:8080/api/product/expiration/' + result.json() + '?page=0');
-//    var res = fetch('http://localhost:8080/api/product/expiration/32?page=0');
-//    console.log("second function returned: " + res);
-//
-//    return res;
-//
-//};
-
-
-
-function runAtSpecificTimeOfDay(hour, minutes, func) {
-    const twentyFourHours = 86400000;
-    const now = new Date();
-    let eta_ms = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hour, minutes, 0, 0).getTime() - now;
-    if (eta_ms < 0) {
-        eta_ms += twentyFourHours;
-    }
-    setTimeout(function () {
-        //run once
-        func();
-        // run every 24 hours from now on
-        setInterval(func, twentyFourHours);
-    }, eta_ms);
 }
 
 async function generateDialogTable(data, diagTable) {

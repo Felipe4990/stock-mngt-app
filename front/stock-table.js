@@ -7,10 +7,6 @@ var lastSearchType = "";
 var paginationNumber = "0";
 
 
-function definePaginationNumber(incoming){
-    paginationNumber
-}
-
 // Load paginated Products on Page Load
 window.onload = async function () {
     getPaginatedProducts(paginationNumber);
@@ -20,7 +16,7 @@ window.onload = async function () {
 async function getPaginatedProducts(paginationNumber) {
     deleteContents();
     if(paginationNumber == null){
-        paginationNumber=0;
+        paginationNumber = 0;
     }
 
     try {
@@ -32,6 +28,7 @@ async function getPaginatedProducts(paginationNumber) {
         console.error('Error fetching data:', error);
     }
 }
+
 
 // Table button calls it onClick for Regex on Product Names
 async function getNamesToTable() {
@@ -84,6 +81,7 @@ async function getElementsThroughRouter(paginationNumber) {
 // Retrieves name filtered content from the Backend
 async function getElementsToTable(inputField, searchingType, paginationNumber) {
     deleteContents();
+    //paginationNumber=0;
 
     try {
         const response = await fetch('http://localhost:8080/api/product/' + searchingType + '/' + inputField.value + '?page=' +  paginationNumber);
@@ -188,6 +186,7 @@ async function editElementFromTable(element, row) {
     for (let i = 1; i < element.length; i++) {
         const input = document.createElement("input");
         input.setAttribute("value", element[i]);
+        input.setAttribute("class", "mutant-input-class");
         input.setAttribute("id", "mutant-input-" + i);
         row.cells[i].replaceChildren(input);
         if (i == 1) {
@@ -303,34 +302,3 @@ async function goForward() {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-//async function paginated_fetch(
-//    url = is_required("url"), // Improvised required argument in JS
-//    page = 1,
-//    previousResponse = []
-//  ) {
-//    return await fetch(`${url}&page=${page}`
-//    ) // Append the page number to the base URL
-//      .then(response => response.json())
-//      .then(newResponse => {
-//        const response = [...previousResponse, ...newResponse]; // Combine the two arrays
-//  
-//        if (newResponse.length !== 0) {
-//          page++;
-//  
-//          return paginated_fetch(url, page, response);
-//        }
-//  
-//        return response;
-//      });
-//  }
