@@ -1,146 +1,35 @@
-
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 @import url('https://fonts.googleapis.com/css?family=Belleza');
 
 body {
     background-color: rgba(252, 251, 250, 1);
     text-align: center;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 /*
 ###############################
-## Tabela e elementos dela ####
+## Table Section ##############
 ############################### */
 #materials-section {
     padding-top: 1.5%;
     padding-bottom: 1.5%;   
     font-family: "Open Sans";
-    font-size: 14px;
+    font-size: smaller;
 }
 #materials-table{
     border-collapse: collapse;
     width: 100%;
 }
-
 #materials-table td,  #materials-table th {
     border: 1px solid rgb(229, 140, 161);
 
 }
-
 #materials-table thead tr th{
     background-color: rgb(229, 140, 161);
     color: rgb(255, 255, 255);
 }
-
-#search-section{
-    text-align: center;
-    font-family: "Belleza";
-    font-size: 20px;
-}
-
-#search-section button{
-    background-image: url(./img/arrowdown.svg);
-    border: none;
-    cursor: pointer;
-    padding-top: 17px;
-    padding-bottom: 6px;
-    padding-left: 11px;
-    padding-right: 11px;
-    border-radius: 3px;
-}
-
-#search-section button:hover {
-    background-image: url(./img/arrowdown-hover.svg);
-    border: none;
-    cursor: pointer;
-    padding-top: 17px;
-    padding-bottom: 6px;
-    padding-left: 11px;
-    padding-right: 11px;
-    border-radius: 3px;
-}
-
-
-#pagination-id button{
-    background-color: rgb(229, 140, 161);
-    font-family: "Belleza";
-    font-size: 19px;
-    color: white;
-    border: none;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    padding-left: 13px;
-    padding-right: 13px;
-    border-radius: 11px;
-    cursor: pointer;
-}
-
-#pagination-id button:hover{
-    background-color: #f46d8f;
-    color: white;
-
-    font-family: "Belleza";
-    font-size: 19px;
-    color: white;
-    border: none;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    padding-left: 13px;
-    padding-right: 13px;
-    border-radius: 11px;
-    cursor: pointer;
-}
-
-#name-search{
-    padding-top: 0.1%;
-    padding-bottom: 0.1%;
-    white-space: nowrap;
-}
-#manufacturer-search{
-    padding-top: 0.1%;
-    padding-bottom: 0.1%;
-    white-space: nowrap;
-
-}
-#content-search{
-    padding-top: 0.1%;
-    padding-bottom: 0.1%;
-    white-space: nowrap;
-
-}
-#expiration-search{
-    padding-top: 0.1%;
-    padding-bottom: 0.1%;
-    white-space: nowrap;
-}
-
-
-
-#name-input{
-    width: 90%;
-}
-#manufacturer-input{ 
-    width: 90%;
-}
-#content-input{
-    width: 90%;
-}
-#expiration-input{
-    width: 90%;
-}
-
-#search-table {
-    width: 100%;
-}
-
-.search-section-labels {
-    text-align: left;
-    width: 1%;
-}
-.search-section-values {
-    text-align: right;
-}
-
 #save-button {
     background-image: url(./img/save-icon.png);
     background-color: whitesmoke;
@@ -173,24 +62,132 @@ body {
 }
 
 
+/*
+###############################
+## Search Section #############
+############################### */
+#search-section{
+    text-align: center;
+    font-family: "Belleza";
+    font-size: larger;
+}
+#search-section button{
+    background-image: url(./img/arrowdown.svg);
+    border: none;
+    cursor: pointer;
+    padding-top: 17px;
+    padding-bottom: 6px;
+    padding-left: 11px;
+    padding-right: 11px;
+    border-radius: 3px;
+}
+#search-section button:hover {
+    background-image: url(./img/arrowdown-hover.svg);
+    border: none;
+    cursor: pointer;
+    padding-top: 17px;
+    padding-bottom: 6px;
+    padding-left: 11px;
+    padding-right: 11px;
+    border-radius: 3px;
+}
+#name-search{
+    padding-top: 0.1%;
+    padding-bottom: 0.1%;
+    white-space: nowrap;
+}
+#manufacturer-search{
+    padding-top: 0.1%;
+    padding-bottom: 0.1%;
+    white-space: nowrap;
 
+}
+#content-search{
+    padding-top: 0.1%;
+    padding-bottom: 0.1%;
+    white-space: nowrap;
 
+}
+#expiration-search{
+    padding-top: 0.1%;
+    padding-bottom: 0.1%;
+    white-space: nowrap;
+}
+#name-input{
+    width: 90%;
+}
+#manufacturer-input{ 
+    width: 90%;
+}
+#content-input{
+    width: 90%;
+}
+#expiration-input{
+    width: 90%;
+}
+#search-table {
+    width: 100%;
+}
+.search-section-labels {
+    text-align: left;
+    width: 1%;
+}
+.search-section-values {
+    text-align: right;
+}
+
+/*
+###############################
+## Pagination Section #########
+############################### */
+#pagination-id button{
+    background-color: rgb(229, 140, 161);
+    font-family: "Belleza";
+    font-size: 19px;
+    color: white;
+    border: none;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 13px;
+    padding-right: 13px;
+    border-radius: 11px;
+    cursor: pointer;
+}
+#pagination-id button:hover{
+    background-color: #f46d8f;
+    color: white;
+    font-family: "Belleza";
+    font-size: 19px;
+    color: white;
+    border: none;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 13px;
+    padding-right: 13px;
+    border-radius: 11px;
+    cursor: pointer;
+}
+
+/*
+###############################
+## Nav Section ################
+############################### */
 #nav-id {
+    font-family: "Belleza";
+    font-size: larger;
     background-color: rgb(229, 140, 161);
     border-radius: 15px;
     justify-content: center;
     display: flex;
-    margin-bottom: 5%;
+    margin-bottom: 4%;
 }
 #nav-row-id{
     justify-content: center;
     display: flex;
 }
-
 nav ul li {
     display: inline;
 }
-
 nav ul li a {
     padding-left: 20px;
     padding-right: 20px;
@@ -200,8 +197,96 @@ nav ul li a {
     border-radius: 11px;
     color: white;
 }
-
 nav ul li a:hover {
     background-color: #f46d8f;
     color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+###############################
+## Register Section ###########
+############################### */
+#insertion-section-id{
+
+}
+#register-section{
+    text-align: center;
+    font-family: "Belleza";
+    font-size: larger;
+}
+
+#register-table {
+    width: 100%;
+}
+.register-section-labels {
+    text-align: left;
+    width: 25%
+}
+.register-section-values {
+    text-align: right;
+}
+.register-section-row {
+    text-align: center;
+    font-family: "Belleza";
+    font-size: larger;
+}
+#productName {
+    width: 98%
+}
+#content {
+    width: 98%;
+}
+#manufacturer {
+    width: 98%;
+}
+#price {
+    width: 98%;
+}
+#number {
+    width: 98%;
+}
+#expirationDate {
+    width: 98%;
+}
+#purchaseDate {
+    width: 98%;
+}
+
+#submit-button-id {
+    background-color: rgb(229, 140, 161);
+    font-family: "Belleza";
+    font-size: 19px;
+    color: white;
+    border: none;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 13px;
+    padding-right: 13px;
+    border-radius: 11px;
+    cursor: pointer;
+}
+#submit-button-id:hover {
+    background-color: #f46d8f;
+    color: white;
+    font-family: "Belleza";
+    font-size: 19px;
+    color: white;
+    border: none;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 13px;
+    padding-right: 13px;
+    border-radius: 11px;
+    cursor: pointer;
 }

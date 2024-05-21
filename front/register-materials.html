@@ -17,6 +17,67 @@
             </div>
         </nav>
         
+
+
+        <div id="insertion-section-id" class="insertion-section">
+            <form id="insertion-form">
+                <table id="register-table">
+                    <tr class="register-section-row">
+                        <td class="register-section-labels">
+                            <label for="productName">Nome do Produto:</label>
+                        </td>
+                        <td class="register-section-values">
+                            <input id="productName" name="productName" type="text" placeholder="Insira o nome do Ingrediente e/ou Produto" required/>
+                        </td>
+                    </tr>
+                    <tr class="register-section-row">
+                        <td class="register-section-labels">
+                            <label for="content">Conteúdo:</label>
+                        </td>
+                        <td class="register-section-values">
+                            <input id="content" name="content" type="text" placeholder="Insira o Conteúdo do Produto">
+                        </td>
+                    </tr>
+                    <tr class="register-section-row">
+                        <td class="register-section-labels">
+                            <label for="manufacturer">Fabricante:</label>
+                        </td>
+                        <td class="register-section-values">
+                            <input id="manufacturer" name="manufacturer" type="text" placeholder="Insira o Nome do Fabricante" required/>
+                        </td>
+                    </tr>
+                    <tr class="register-section-row">
+                        <td class="register-section-labels">
+                            <label for="price">Preço: </label>
+                        </td>
+                        <td class="register-section-values">
+                            <input id="price" name="price" type="number" min="0.01" step="0.01" value="20.00" placeholder="Insira o Preço" required />
+                        </td>
+                    </tr>
+                    <tr class="register-section-row">
+                        <td class="register-section-labels">
+                            <label for="expirationDate">Data de Validade:</label>
+                        </td>
+                        <td class="register-section-values">
+                            <input id="expirationDate" name="expirationDate" type="date" value="2024-05-01" min="2010-01-01" max="2080-01-01" placeholder="Insira a Data de Validade" required/>
+                        </td>
+                    </tr>
+                    <tr class="register-section-row">
+                        <td class="register-section-labels">
+                            <label for="purchaseDate">Data de Compra:</label>
+                        </td>
+                        <td class="register-section-values">
+                            <input id="purchaseDate" name="purchaseDate" type="date" value="2024-05-01" min="2010-01-01" max="2080-01-01" placeholder="Insira a Data de Validade" required/>
+                        </td>
+                    </tr>
+                </table>
+                <button id="submit-button-id" class="button" type="submit">Enviar</button>
+            </form>
+        </div>
+
+
+
+<!--
         <div id="insertion-section-id" class="insertion-section">
             <form id="insertion-form">
                 <div id="productName-id" class="form-control">
@@ -46,6 +107,7 @@
                 <button id="submit-button-id" class="button" type="submit">Enviar</button>
             </form>
         </div>
+-->        
         <!--
         <div class="output">
             <h2>Form Data Output</h2>
