@@ -55,3 +55,6 @@ bin/
 
 ### Java Projects ###
 *.jar
+
+### Project Specific ###
+/tmp/
