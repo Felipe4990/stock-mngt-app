@@ -12,14 +12,13 @@
 
     <nav>
         <div id="nav-id" class="nav-container">
-            <ul>
-                <li> <a href="index.html">Home</a></li>
+            <ul id="nav-row-id">
+                <li><a href="index.html">Home</a></li>
                 <li><a href="register-materials.html">Adicionar Produto</a></li>
                 <li><a href="stock-table.html">Visualizar Estoque</a></li>
             </ul>
         </div>
     </nav>
-
 
     <div id="search-section" class="section-container">
         <table id="search-table">
@@ -27,12 +26,13 @@
                 <td class="search-section-labels">Produto:</td>
                 <td class="search-section-values">
                     <div id="name-search" class="search">
-                        <input type="text" 
-                               id="name-input" 
-                               placeholder="Insira o Nome do Produto a Ser Pesquisado"><button type="image" 
-                                                                                               id="name-button" 
-                                                                                               onclick="getNamesToTable()" 
-                                                                                               data-arg1='name'></button>
+                        <input id="name-input" 
+                               placeholder="Insira o Nome do Produto a Ser Pesquisado" 
+                               type="text" ><button type="image"
+                                                    class="pink-hover-button"
+                                                    id="name-button" 
+                                                    onclick="getNamesToTable()" 
+                                                    data-arg1='name'></button>
                     </div>
                 </td>
             </tr>
@@ -40,12 +40,13 @@
                 <td class="search-section-labels">Fabricante:</td>
                 <td class="search-section-values">
                     <div id="manufacturer-search" class="search">
-                        <input type="text" 
-                               id="manufacturer-input" 
-                               placeholder="Insira o Nome do Fabricantes a Ser Pesquisado"><button type="image"
-                                                                                                   id="manufacturer-button" 
-                                                                                                   onclick="getManufacturersToTable()" 
-                                                                                                   data-arg1='manufacturer'></button>
+                        <input id="manufacturer-input" 
+                               placeholder="Insira o Nome do Fabricantes a Ser Pesquisado" 
+                               type="text"  ><button type="image"
+                                                     class="pink-hover-button"
+                                                     id="manufacturer-button" 
+                                                     onclick="getManufacturersToTable()" 
+                                                     data-arg1='manufacturer'></button>
                     </div>                                                                                                   
                 </td>
             </tr>
@@ -53,12 +54,13 @@
                 <td class="search-section-labels">Conteúdo:</td>
                 <td class="search-section-values">
                     <div id="content-search" class="search">
-                        <input type="text" 
-                               id="content-input" 
-                               placeholder="Insira o Conteúdo a Ser Pesquisado"><button type="image"
-                                                                                        id="content-button" 
-                                                                                        onclick="getContentsToTable()" 
-                                                                                        data-arg1='content'></button>
+                        <input id="content-input" 
+                               placeholder="Insira o Conteúdo a Ser Pesquisado" 
+                               type="text"  ><button type="image"
+                                                     class="pink-hover-button"
+                                                     id="content-button" 
+                                                     onclick="getContentsToTable()" 
+                                                     data-arg1='content'></button>
                     </div>
                 </td>
             </tr>
@@ -67,31 +69,27 @@
                 <td class="search-section-values">
                     <div id="expiration-search" class="search">
                         <input type="text" 
-                               id="expiration-input"
-                               placeholder="Insira o Número de Dias Para Produtos Próximos de Expirarem"><button type="image"
-                                                                                                                 id="expiration-button" 
-                                                                                                                 onclick="getExpiringSoonToTable()" 
-                                                                                                                 data-arg1='expiration'></button>
+                               placeholder="Insira o Número de Dias Para Produtos Próximos de Expirarem" 
+                               id="expiration-input" ><button type="image"
+                                                              class="pink-hover-button"
+                                                              id="expiration-button" 
+                                                              onclick="getExpiringSoonToTable()" 
+                                                              data-arg1='expiration'></button>
                     </div>
                 </td>
             </tr>            
         </table>
     </div>
-
-
-    
+ 
     <div id="materials-section" class="materials">
         <table name="materials-table" id="materials-table"></table>
     </div>
     <div id="pagination-id" class="pagination">
-        <button class="backward" onclick="goToFirstPage()" id="first">Primeiro</button>
-        <button class="backward" onclick="goBackward()" id="prev">Anterior</button>
-        <button class="forward" onclick="goForward()" id="next">Próximo</button>
+        <button class="pink-hover-button" onclick="goToFirstPage()" id="first">Primeiro</button>
+        <button class="pink-hover-button" onclick="goBackward()" id="prev">Anterior</button>
+        <button class="pink-hover-button" onclick="goForward()" id="next">Próximo</button>
         <div class="page-numbers" id="pageNumbers"></div>
     </div>
-
-
-
 
     <!--
     <button onclick="Popup()" role='button'>

@@ -24,6 +24,7 @@ body {
 
 #materials-table td,  #materials-table th {
     border: 1px solid rgb(229, 140, 161);
+
 }
 
 #materials-table thead tr th{
@@ -32,7 +33,7 @@ body {
 }
 
 #search-section{
-    text-align: center
+    text-align: center;
     font-family: "Belleza";
     font-size: 20px;
 }
@@ -41,13 +42,24 @@ body {
     background-image: url(./img/arrowdown.svg);
     border: none;
     cursor: pointer;
-
-
-    padding-top: 16px;
+    padding-top: 17px;
     padding-bottom: 6px;
     padding-left: 11px;
     padding-right: 11px;
+    border-radius: 3px;
 }
+
+#search-section button:hover {
+    background-image: url(./img/arrowdown-hover.svg);
+    border: none;
+    cursor: pointer;
+    padding-top: 17px;
+    padding-bottom: 6px;
+    padding-left: 11px;
+    padding-right: 11px;
+    border-radius: 3px;
+}
+
 
 #pagination-id button{
     background-color: rgb(229, 140, 161);
@@ -63,43 +75,58 @@ body {
     cursor: pointer;
 }
 
+#pagination-id button:hover{
+    background-color: #f46d8f;
+    color: white;
 
+    font-family: "Belleza";
+    font-size: 19px;
+    color: white;
+    border: none;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 13px;
+    padding-right: 13px;
+    border-radius: 11px;
+    cursor: pointer;
+}
 
 #name-search{
-    padding-top: 0.5%;
-    padding-bottom: 0.5%;
-
+    padding-top: 0.1%;
+    padding-bottom: 0.1%;
     white-space: nowrap;
 }
 #manufacturer-search{
-    padding-top: 0.5%;
-    padding-bottom: 0.5%;  
+    padding-top: 0.1%;
+    padding-bottom: 0.1%;
     white-space: nowrap;
 
 }
 #content-search{
-    padding-top: 0.5%;
-    padding-bottom: 0.5%;   
+    padding-top: 0.1%;
+    padding-bottom: 0.1%;
     white-space: nowrap;
 
 }
 #expiration-search{
-    padding-top: 0.5%;
-    padding-bottom: 0.5%;  
+    padding-top: 0.1%;
+    padding-bottom: 0.1%;
     white-space: nowrap;
 }
 
+
+
 #name-input{
-    width: 80%;
+    width: 90%;
 }
 #manufacturer-input{ 
-    width: 80%;
+    width: 90%;
 }
 #content-input{
-    width: 80%;
+    width: 90%;
 }
 #expiration-input{
-    width: 80%;
+    width: 90%;
 }
 
 #search-table {
@@ -107,9 +134,74 @@ body {
 }
 
 .search-section-labels {
-    text-align: right;
-    width: 24%;
+    text-align: left;
+    width: 1%;
 }
 .search-section-values {
-    text-align: left;
+    text-align: right;
+}
+
+#save-button {
+    background-image: url(./img/save-icon.png);
+    background-color: whitesmoke;
+    border: none;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 22px;
+}
+#edit-button {
+    background-image: url(./img/pen-icon.png);
+    background-color: whitesmoke;
+    border: none;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 22px;
+}
+#delete-button {
+    background-image: url(./img/trash-icon.png);
+    background-color: whitesmoke;
+    border: none;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 22px;
+}
+
+
+
+
+#nav-id {
+    background-color: rgb(229, 140, 161);
+    border-radius: 15px;
+    justify-content: center;
+    display: flex;
+    margin-bottom: 5%;
+}
+#nav-row-id{
+    justify-content: center;
+    display: flex;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-decoration: none;
+    border-radius: 11px;
+    color: white;
+}
+
+nav ul li a:hover {
+    background-color: #f46d8f;
+    color: white;
 }

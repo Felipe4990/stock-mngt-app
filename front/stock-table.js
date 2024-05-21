@@ -121,7 +121,7 @@ function generateTable(data) {
                 //cell.appendChild(document.createTextNode("#action_btn_save"));
                 var saveButton = document.createElement('button');
 
-                saveButton.innerText = "S";
+                saveButton.innerText = " \u200B \u200B \u200B \u200B ";
                 saveButton.id = 'save-button'
                 saveButton.addEventListener('click', () => {
                     handleElementsForSending(element, row, 0);
@@ -131,7 +131,7 @@ function generateTable(data) {
                 //cell.appendChild(document.createTextNode("#action_btn_edit"));
                 var editButton = document.createElement('button');
 
-                editButton.innerText = "E";
+                editButton.innerText = " \u200B \u200B \u200B \u200B ";
                 editButton.id = 'edit-button'
                 editButton.addEventListener('click', () => {
                     editElementFromTable(element, row);
@@ -141,7 +141,7 @@ function generateTable(data) {
                 //cell.appendChild(document.createTextNode("#action_btn_delete"));
                 var deleteButton = document.createElement('button');
 
-                deleteButton.innerText = "D";
+                deleteButton.innerText = " \u200B \u200B \u200B \u200B ";
                 deleteButton.id = 'delete-button'
                 deleteButton.addEventListener('click', () => {
                     deleteElementFromTable(element[0]);
