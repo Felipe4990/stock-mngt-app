@@ -6,11 +6,15 @@ O projeto visa habilitar o usuário a consultar informações consolidadas de se
 
 ## Instalação
 
-1 - Baixar e instale o Git Bash em seu sistema:
+1 - Baixar e instalar o Git Bash em seu sistema:
 ```bash
 https://github.com/git-for-windows/git/releases/download/v2.45.1.windows.1/Git-2.45.1-64-bit.exe
 ```
-2 - Rode o script INSTALL.sh
+2 - Baixar e instalar o MySQL Community Edition em seu sistema:
+https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-8.0.37.0.msi
+
+
+3 - Rodar o script INSTALL.sh
 
 
 
