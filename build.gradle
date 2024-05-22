@@ -7,6 +7,12 @@ plugins {
 group = 'br.com.univesp.pi'
 version = '1.0.0'
 
+
+
+tasks.bootJar {
+    archiveFileName.set("controle-estoque-app")
+}
+
 java {
     sourceCompatibility = '21'
 }
