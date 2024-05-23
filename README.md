@@ -6,19 +6,24 @@ O projeto visa habilitar o usuário a consultar informações consolidadas de se
 
 ## Pré Requisitos
 
-Tanto para a instalação da solução (Frontend + Backend), quanto para o uso é necessária a utilização de algum emulador de BASH.
-
-Recomenda-se baixar e instalar o Git Bash em seu sistema:
-* https://github.com/git-for-windows/git/releases/download/v2.45.1.windows.1/Git-2.45.1-64-bit.exe
+* Espaço de 2.3 GB disponível em disco
+* Mínimo de 4 GB de Memória disponível
+* Windows 10 com build 1803 ou superior 
 
 ## Instalação
 Executar o Script de instalação presente na raiz desse projeto:
-* INSTALL.sh
+* INSTALL.bat
 
 ## Uso
 Executar o script de uso presente na raiz do projeto:
-* USE.sh
+* USE.bat
 
 Um arquivo HTML será gerado na área de trabalho do usuário atual.
 Executar o arquivo e utiliza-lo normalmente:
 * Estoque.html
+
+## Pontos de Atenção
+* A execução do script de *Instalação* implica na destruição e recriação do banco
+  * Essa solução ainda não suporta sistema de Backup compreensivo automatizado
+  * Para a realização de Backup manual, copie o conteúdo da seguinte pasta para alguma outra: 
+    * C:\Users\Public\stock-mngt\stock_db
