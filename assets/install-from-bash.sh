@@ -3,10 +3,7 @@
 PUBLIC_PATH="/c/Users/Public"
 PROJECT_NAME=stock-mngt
 
-wmic process where "name like 'java.exe'" delete
-wmic process where "name like 'mysqld.exe'" delete
-
-rm -rf $PUBLIC_PATH/$PROJECT_NAME
+#rm -rf $PUBLIC_PATH/$PROJECT_NAME
 
 mkdir -p $PUBLIC_PATH/$PROJECT_NAME
 
