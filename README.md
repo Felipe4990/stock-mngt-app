@@ -6,17 +6,6 @@ O projeto visa habilitar o usuário a consultar informações consolidadas de se
 
 ## Pré Requisitos
 
-Para se utilizar o sistema, é necessária a utilização de um banco MySQL para a persistência de dados:
-
-Opção 1 - Baixar e instalar o MySQL Community Edition em seu sistema:
-* https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-8.0.37.0.msi
-
-
-Opção 2 - Para ambientes com Docker instalado, realizar o pull da imagem docker para o MySQL:
-* docker pull mysql:latest
-
-___
-
 Tanto para a instalação da solução (Frontend + Backend), quanto para o uso é necessária a utilização de algum emulador de BASH.
 
 Recomenda-se baixar e instalar o Git Bash em seu sistema:
@@ -32,4 +21,4 @@ Executar o script de uso presente na raiz do projeto:
 
 Um arquivo HTML será gerado na área de trabalho do usuário atual.
 Executar o arquivo e utiliza-lo normalmente:
-* estoque.html
+* Estoque.html

@@ -9,7 +9,7 @@ spring:
       enabled:
         true
   datasource:
-    url: jdbc:mysql://localhost:33060/stock-db
+    url: jdbc:mysql://localhost:33061/stock_db
     username: root
     password: bar
   jpa:
