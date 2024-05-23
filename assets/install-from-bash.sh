@@ -3,8 +3,6 @@
 PUBLIC_PATH="/c/Users/Public"
 PROJECT_NAME=stock-mngt
 
-#rm -rf $PUBLIC_PATH/$PROJECT_NAME
-
 mkdir -p $PUBLIC_PATH/$PROJECT_NAME
 
 curl https://download.java.net/openjdk/jdk21/ri/openjdk-21+35_windows-x64_bin.zip \

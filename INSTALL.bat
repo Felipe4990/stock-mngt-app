@@ -1,21 +1,25 @@
+set PUBLIC_PATH=C:\Users\Public
+set PROJECT_NAME=stock-mngt
+
 wmic process where "name like 'java.exe'" delete
 wmic process where "name like 'mysqld.exe'" delete
 
 del %HOMEDRIVE%%HOMEPATH%\Desktop\Estoque.lnk
 
-@RD /S /Q "C:\Users\Public\stock-mngt\"
-mkdir C:\Users\Public\stock-mngt
 
-curl -L https://github.com/git-for-windows/git/releases/download/v2.45.1.windows.1/PortableGit-2.45.1-64-bit.7z.exe -o "C:\Users\Public\stock-mngt\git.exe"
+@RD /S /Q "%PUBLIC_PATH%\%PROJECT_NAME%\"
+mkdir %PUBLIC_PATH%\%PROJECT_NAME%
 
-start /b /wait C:\Users\Public\stock-mngt\git.exe -o C:\Users\Public\stock-mngt\git -y
+curl -L https://github.com/git-for-windows/git/releases/download/v2.45.1.windows.1/PortableGit-2.45.1-64-bit.7z.exe -o "%PUBLIC_PATH%\%PROJECT_NAME%\git.exe"
 
-if not exist "C:\Users\Public\stock-mngt\git\home\" mkdir C:\Users\Public\stock-mngt\git\home\
+start /b /wait %PUBLIC_PATH%\%PROJECT_NAME%\git.exe -o %PUBLIC_PATH%\%PROJECT_NAME%\git -y
 
-del "C:\Users\Public\stock-mngt\git.exe"
+if not exist "%PUBLIC_PATH%\%PROJECT_NAME%\git\home\" mkdir %PUBLIC_PATH%\%PROJECT_NAME%\git\home\
 
-set HOME=C:\Users\Public\stock-mngt\git\home
+del "%PUBLIC_PATH%\%PROJECT_NAME%\git.exe"
+
+set HOME=%PUBLIC_PATH%\%PROJECT_NAME%\git\home
 set "MSYSTEM=MINGW64"
-start C:\Users\Public\stock-mngt\git\usr\bin\mintty /bin/bash -l -e '%~dsp0/assets/install-from-bash.sh'
+start %PUBLIC_PATH%\%PROJECT_NAME%\git\usr\bin\mintty /bin/bash -l -e '%~dsp0/assets/install-from-bash.sh'
 
 exit 0
