@@ -12,10 +12,20 @@ spring:
     url: jdbc:mysql://localhost:33061/stock_db
     username: root
     password: bar
+    hikari:
+      allow-pool-suspension: true
+  sql:
+    init:
+      mode: never
   jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
     show-sql: false
     hibernate:
       ddl-auto: update
     properties:
       hibernate:
+        boot:
+          allow_jdbc_metadata_access: false
+        temp:
+          use_jdbc_metadata_defaults: false
         dialect: org.hibernate.dialect.MySQLDialect
