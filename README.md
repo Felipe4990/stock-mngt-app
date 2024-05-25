@@ -9,6 +9,9 @@ O projeto visa habilitar o usuário a consultar informações consolidadas de se
 * Espaço de 2.3 GB disponível em disco
 * Mínimo de 4 GB de Memória disponível
 * Windows 10 com build 1803 ou superior 
+* Visual C++ Runtime for VS Studio 2015
+  * [Visual C++](https://download.microsoft.com/download/9/3/F/93FCF1E7-E6A4-478B-96E7-D4B285925B00/vc_redist.x64.exe)
+
 
 ## Instalação
 Executar o Script de instalação presente na raiz desse projeto:
