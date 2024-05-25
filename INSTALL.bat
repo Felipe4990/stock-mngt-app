@@ -7,6 +7,9 @@ wmic process where "name like 'mysqld.exe'" delete
 del %HOMEDRIVE%%HOMEPATH%\Desktop\Estoque.lnk
 
 
+
+
+
 @RD /S /Q "%PUBLIC_PATH%\%PROJECT_NAME%\"
 mkdir %PUBLIC_PATH%\%PROJECT_NAME%
 

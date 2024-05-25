@@ -46,7 +46,7 @@ cp -r $(pwd)/assets/config.ini $PUBLIC_PATH/$PROJECT_NAME
 nohup "$PUBLIC_PATH/$PROJECT_NAME/mysql-8.4.0-winx64/bin/mysqld.exe" \
     --defaults-file="$PUBLIC_PATH/$PROJECT_NAME/config.ini" --console </dev/null >/dev/null 2>&1 &
 
-sleep 5
+sleep 17
 
 "$PUBLIC_PATH/$PROJECT_NAME/mysql-8.4.0-winx64/bin/mysql.exe" \
     -h 127.0.0.1 -P 33061 -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'bar'";
